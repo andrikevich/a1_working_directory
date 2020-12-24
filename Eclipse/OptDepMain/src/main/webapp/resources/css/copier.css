@@ -1,0 +1,39 @@
+table, th, td {
+	border-collapse: collapse;
+	border: 1px solid black;
+	font-family: Tahoma, Verdana, Segoe, sans-serif;
+	width: 72%;
+}
+
+.secDriv {
+	color: #2c46db;
+	background-color: #dffc03;
+}
+
+.karDriv {
+	color: black;
+	background-color: #f29b18;
+}
+
+#main {
+	width: 1000;
+	height: 600;
+}
+
+#loginInfo {
+	width: 100;
+	height: 30;
+	float: right;
+	text-align: right;
+}
+
+#headOfPage {
+	width: 1000;
+	height: 30;
+	float: left;
+}
+
+#tableCopier {
+	table-layout: fixed;
+	width: 500px;
+}

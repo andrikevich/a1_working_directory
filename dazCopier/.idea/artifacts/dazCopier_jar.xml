@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="dazCopier:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/dazCopier_jar</output-path>
+    <root id="archive" name="dazCopier.jar">
+      <element id="module-output" name="dazCopier" />
+    </root>
+  </artifact>
+</component>

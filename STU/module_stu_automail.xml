@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_stu_automail" default="compile.module.stu_automail">
+  <dirname property="module.stu_automail.basedir" file="${ant.file.module_stu_automail}"/>
+  
+  <property name="module.jdk.home.stu_automail" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.stu_automail" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.stu_automail" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.stu_automail" value="-encoding UTF-8 -source 7 -target 7 ${compiler.args}"/>
+  
+  <property name="stu_automail.output.dir" value="${module.stu_automail.basedir}/out/production/STU_autoMail"/>
+  <property name="stu_automail.testoutput.dir" value="${module.stu_automail.basedir}/out/test/STU_autoMail"/>
+  
+  <path id="stu_automail.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="stu_automail.module.production.classpath">
+    <path refid="${module.jdk.classpath.stu_automail}"/>
+    <path refid="library.lib.classpath"/>
+    <path refid="library.stu.classpath"/>
+  </path>
+  
+  <path id="stu_automail.runtime.production.module.classpath">
+    <pathelement location="${stu_automail.output.dir}"/>
+    <path refid="library.lib.classpath"/>
+    <path refid="library.stu.classpath"/>
+  </path>
+  
+  <path id="stu_automail.module.classpath">
+    <path refid="${module.jdk.classpath.stu_automail}"/>
+    <pathelement location="${stu_automail.output.dir}"/>
+    <path refid="library.lib.classpath"/>
+    <path refid="library.stu.classpath"/>
+  </path>
+  
+  <path id="stu_automail.runtime.module.classpath">
+    <pathelement location="${stu_automail.testoutput.dir}"/>
+    <pathelement location="${stu_automail.output.dir}"/>
+    <path refid="library.lib.classpath"/>
+    <path refid="library.stu.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.stu_automail">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.stu_automail">
+    <patternset refid="excluded.from.module.stu_automail"/>
+  </patternset>
+  
+  <path id="stu_automail.module.sourcepath">
+    <dirset dir="${module.stu_automail.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.stu_automail" depends="compile.module.stu_automail.production,compile.module.stu_automail.tests" description="Compile module STU_autoMail"/>
+  
+  <target name="compile.module.stu_automail.production" depends="register.custom.compilers" description="Compile module STU_autoMail; production classes">
+    <mkdir dir="${stu_automail.output.dir}"/>
+    <javac2 destdir="${stu_automail.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.stu_automail}/javac">
+      <compilerarg line="${compiler.args.stu_automail}"/>
+      <bootclasspath refid="stu_automail.module.bootclasspath"/>
+      <classpath refid="stu_automail.module.production.classpath"/>
+      <src refid="stu_automail.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.stu_automail"/>
+    </javac2>
+    
+    <copy todir="${stu_automail.output.dir}">
+      <fileset dir="${module.stu_automail.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.stu_automail.tests" depends="register.custom.compilers,compile.module.stu_automail.production" description="compile module STU_autoMail; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.stu_automail" description="cleanup module">
+    <delete dir="${stu_automail.output.dir}"/>
+    <delete dir="${stu_automail.testoutput.dir}"/>
+  </target>
+</project>

@@ -1,0 +1,54 @@
+package by.a1.andrikevich.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import by.a1.andrikevich.entity.Stu;
+
+@Repository
+public class StuDaoImpl implements StuDao {
+
+	private EntityManager entityManager;
+
+	@Autowired
+	public StuDaoImpl(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+
+	@Override
+	public List<Stu> findAll() {
+		Session session = entityManager.unwrap(Session.class);
+		Query<Stu> query = session.createQuery("from Stu",Stu.class);
+		List <Stu> resultList = query.getResultList();
+		return resultList;
+	}
+
+	@Override
+	public Stu findById(int theId) {
+		Session session = entityManager.unwrap(Session.class);
+		Stu resultStu = session.get(Stu.class, theId);
+		return resultStu;
+	}
+
+	@Override
+	public void save(Stu theStu) {
+		Session session = entityManager.unwrap(Session.class);
+		session.saveOrUpdate(theStu);
+	}
+
+	@Override
+	public void deleteById(int theId) {
+		Session session = entityManager.unwrap(Session.class);
+		Query<Stu> query = session.createQuery("delete from Stu where id=:tmpId");
+		query.setParameter("tmpId", theId);
+		query.executeUpdate();
+
+	}
+
+}

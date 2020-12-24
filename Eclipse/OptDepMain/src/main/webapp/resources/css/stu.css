@@ -1,0 +1,45 @@
+table, th, td {
+	border-collapse: collapse;
+	border: 3px solid gray;
+	font-family: Tahoma, Verdana, Segoe, sans-serif;
+	border: 1;
+}
+
+th, td {
+	text-align: center;
+	padding: 8px;
+}
+
+th {
+	background-color: lightGrey;
+}
+
+h1 {
+	margin-left: 20px;
+}
+
+.inputCell {
+	border: 0px;
+	font-size: 16px;
+	font-style: italic;
+}
+
+.inputCellHeader {
+	border: 0px;
+	font-size: 18px;
+	font-style: italic,bold;
+	background-color: #D6D2D1;
+	text-align: center;
+}
+
+.header-column {
+	font-weight: bold;
+	text-align: left;
+}
+
+.applyButton {
+	font-size: 20px;
+	margin-left: 100px;
+	font-weight: bold;
+	color: green;
+}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_cellfile" default="compile.module.cellfile">
+  <dirname property="module.cellfile.basedir" file="${ant.file.module_cellfile}"/>
+  
+  <property name="module.jdk.home.cellfile" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.cellfile" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.cellfile" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.cellfile" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="cellfile.output.dir" value="${module.cellfile.basedir}/out/production/CellFile"/>
+  <property name="cellfile.testoutput.dir" value="${module.cellfile.basedir}/out/test/CellFile"/>
+  
+  <path id="cellfile.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="cellfile.module.production.classpath">
+    <path refid="${module.jdk.classpath.cellfile}"/>
+    <path refid="library.dazcopier.classpath"/>
+  </path>
+  
+  <path id="cellfile.runtime.production.module.classpath">
+    <pathelement location="${cellfile.output.dir}"/>
+    <path refid="library.dazcopier.classpath"/>
+  </path>
+  
+  <path id="cellfile.module.classpath">
+    <path refid="${module.jdk.classpath.cellfile}"/>
+    <pathelement location="${cellfile.output.dir}"/>
+    <path refid="library.dazcopier.classpath"/>
+  </path>
+  
+  <path id="cellfile.runtime.module.classpath">
+    <pathelement location="${cellfile.testoutput.dir}"/>
+    <pathelement location="${cellfile.output.dir}"/>
+    <path refid="library.dazcopier.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.cellfile">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.cellfile">
+    <patternset refid="excluded.from.module.cellfile"/>
+  </patternset>
+  
+  <path id="cellfile.module.sourcepath">
+    <dirset dir="${module.cellfile.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.cellfile" depends="compile.module.cellfile.production,compile.module.cellfile.tests" description="Compile module CellFile"/>
+  
+  <target name="compile.module.cellfile.production" depends="register.custom.compilers" description="Compile module CellFile; production classes">
+    <mkdir dir="${cellfile.output.dir}"/>
+    <javac2 destdir="${cellfile.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.cellfile}/javac">
+      <compilerarg line="${compiler.args.cellfile}"/>
+      <bootclasspath refid="cellfile.module.bootclasspath"/>
+      <classpath refid="cellfile.module.production.classpath"/>
+      <src refid="cellfile.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.cellfile"/>
+    </javac2>
+    
+    <copy todir="${cellfile.output.dir}">
+      <fileset dir="${module.cellfile.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.cellfile.tests" depends="register.custom.compilers,compile.module.cellfile.production" description="compile module CellFile; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.cellfile" description="cleanup module">
+    <delete dir="${cellfile.output.dir}"/>
+    <delete dir="${cellfile.testoutput.dir}"/>
+  </target>
+</project>

@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="dazCopier">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../LIB/commons-net-3.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/commons-net-examples-3.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/dazCopier.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/Test/orai18n-mapping.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/Test/orai18n.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/ojdbc7_forOracle 12c.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../LIB/commons-net-3.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,29 @@
+<component name="libraryTable">
+  <library name="commons-codec-1.11">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../LIB/apache/commons-codec-1.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/apache/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/apache/fluent-hc-4.5.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/apache/httpclient-4.5.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/apache/httpclient-cache-4.5.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/apache/httpclient-osgi-4.5.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/apache/httpclient-win-4.5.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/apache/httpcore-4.4.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/apache/httpmime-4.5.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/apache/jna-4.5.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/apache/jna-platform-4.5.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/commons-net-3.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/commons-net-examples-3.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/commons-io-2.6/commons-io-2.6-tests.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/commons-io-2.6/commons-io-2.6.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../LIB/commons-io-2.6/commons-io-2.6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../LIB/commons-net-3.6-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/commons-io-2.6/commons-io-2.6-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/commons-io-2.6/commons-io-2.6-test-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

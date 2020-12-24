@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="STU">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../LIB/Access/commons-lang-2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/Access/commons-logging-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/Access/commons-logging-1.1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/Access/hsqldb.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/Access/jackcess-2.1.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/Access/jackcess-2.1.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/Access/mssql-jdbc-6.4.0.jre7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/Access/sqlite-jdbc-3.16.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/Access/sqljdbc41.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/Access/sqljdbc42.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/Access/ucanaccess-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/Access/ucanaccess-4.0.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

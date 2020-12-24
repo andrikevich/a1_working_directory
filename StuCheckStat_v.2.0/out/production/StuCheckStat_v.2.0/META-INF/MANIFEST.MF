@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: \\pc-vel-408062\c$\PC-tech-084\Andrikevich\Bat\dist\lib\
+Main-Class: by.dazer.Starter2
+

@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: i:\Andrikevich\GDR\Java\LIB\
+Main-Class: by.dazer.StarterSql
+

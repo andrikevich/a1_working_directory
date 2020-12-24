@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="RoutesTA12:jar">
+    <output-path>$PROJECT_DIR$/../../..</output-path>
+    <root id="archive" name="RoutesTA12.jar">
+      <element id="module-output" name="RoutesTA12" />
+    </root>
+  </artifact>
+</component>
