@@ -1,0 +1,11 @@
+package it.academy.cv_storage.app;
+
+import it.academy.cv_storage.model.entity.Candidate;
+
+public class Test {
+	
+	public static void main(String[] args) {
+		System.out.println(Candidate.class.getAnnotations());
+	}
+
+}

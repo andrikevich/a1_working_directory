@@ -1,0 +1,12 @@
+package it.academy.cv_storage.model.entity;
+
+public class Phone {
+	
+	private String phoneId;
+	
+	private String phoneNumber;
+	
+	private String candidateId;
+	
+
+}

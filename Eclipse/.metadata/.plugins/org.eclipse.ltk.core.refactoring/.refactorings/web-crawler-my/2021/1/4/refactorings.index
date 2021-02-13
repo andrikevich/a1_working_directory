@@ -1,0 +1,8 @@
+1610875745761	Rename type 'SearchDto'
+1610877124881	Rename method 'parse'
+1610877564888	Delete element
+1610885303066	Rename method 'searchInDepth'
+1610885770135	Rename method 'searchInDepthWithHttpBrowser'
+1610887885524	Rename local variable 'URL'
+1610888223660	Rename field 'visitedPages'
+1610900070552	Delete element

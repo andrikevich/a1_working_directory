@@ -1,0 +1,12 @@
+package it.academy.cv_storage.config;
+
+import org.springframework.context.annotation.Configuration;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ComponentScan(basePackages = "it.academy.cv_storage")
+public class MainConfig {
+
+}

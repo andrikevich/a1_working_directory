@@ -1,0 +1,11 @@
+1611656713535	Move compilation unit
+1611656719707	Move compilation unit
+1611656727560	Delete element
+1611657206891	Delete element
+1611663989481	Rename type 'FilesRetriever'
+1611668844247	Delete element
+1611668850904	Delete element
+1611670255835	Rename package 'by.a1.andrikevich.cheker'
+1611737773906	Rename type 'MyFtpFile'
+1611738178895	Extract local variable 'timeCreationFileTwo'
+1611738217577	Extract local variable 'timeCreationFileOne'

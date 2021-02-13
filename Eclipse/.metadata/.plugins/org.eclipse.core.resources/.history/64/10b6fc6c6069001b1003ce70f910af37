@@ -1,0 +1,48 @@
+package it.academy.cv_storage.data.utilities;
+
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
+import it.academy.cv_storage.exeption.StartSqlSentenceExeption;
+
+public class CustomSqlSelect extends CustomSql {
+	
+	
+	
+	public <T> CustomSqlSelect selectAllFrom(Class<T> clsFrom) throws StartSqlSentenceExeption {
+		if(startQuery == null) {
+		startQuery = new StringBuilder();
+		startQuery.append("from").append(" ")
+				.append(clsFrom.getSimpleName()).append(" ");
+		return this;
+		}else 
+			throw new StartSqlSentenceExeption("The beginning of SQL query is not correct. It should start from SELECT ...");
+		
+	}
+	
+	public <T> CustomSqlSelect selectFrom(Class<T> clsFrom, String...searchParam) throws StartSqlSentenceExeption {
+		if(startQuery == null) {
+		startQuery = new StringBuilder();
+		startQuery.append("SELECT ");
+		System.out.println(">>> " + searchParam.length);
+			if(searchParam == null) {
+				startQuery.append("* ");
+			}else {
+				startQuery.append(Arrays.stream(searchParam).collect(Collectors.joining(", "," "," ")));
+			}
+		
+		startQuery.append("from").append(" ")
+					.append(clsFrom.getSimpleName()).append(" ");
+		return this;
+		}else 
+			throw new StartSqlSentenceExeption("The beginning of SQL query is not correct. It should start from SELECT ...");
+		
+	}
+	
+	@Override
+	public String getQuery() {
+		return  startQuery.toString();
+		
+	}
+
+}

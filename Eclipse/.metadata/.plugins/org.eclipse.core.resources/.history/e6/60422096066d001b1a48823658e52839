@@ -1,0 +1,11 @@
+package it.academy.cv_storage.data.utilities;
+
+public abstract  class CustomSql<T> {
+	
+	protected StringBuilder startQuery = null;
+	protected StringBuilder whereQuery = null;
+	protected Class<T> clsFrom = null;
+	
+	public abstract String getQuery();
+
+}

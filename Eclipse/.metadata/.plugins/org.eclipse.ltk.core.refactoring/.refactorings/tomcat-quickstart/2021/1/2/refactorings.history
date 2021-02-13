@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;product-spec.xml&apos; to &apos;junitdbunit&apos;&#x0D;&#x0A;- Original project: &apos;tomcat-quickstart&apos;&#x0D;&#x0A;- Destination element: &apos;junitdbunit&apos;&#x0D;&#x0A;- Original element: &apos;product-spec.xml&apos;" description="Copy file" element1="product-spec.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1609673015219" target="/junitdbunit" units="0" version="1.0"/>
+</session>

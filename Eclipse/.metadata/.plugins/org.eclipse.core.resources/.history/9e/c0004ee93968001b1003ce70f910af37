@@ -1,0 +1,26 @@
+package it.academy.cv_storage.model.entity;
+
+import java.sql.Date;
+
+import it.academy.cv_storage.model.utilities.Gender;
+
+public class Candidate {
+	
+	private String id;
+	
+	
+	private String firstName;
+	
+	private String middleName;
+	
+	private String lastName;
+	
+	
+	private Date birthDate;
+	
+	
+	private Gender gender;
+	
+	
+
+}

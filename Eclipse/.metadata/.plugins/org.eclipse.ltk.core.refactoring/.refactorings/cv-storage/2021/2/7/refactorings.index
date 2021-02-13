@@ -1,0 +1,15 @@
+1612700455624	Rename package 'it.academy.cv_storage.helper'
+1612704865646	Extract local variable 'createQuery'
+1612705984352	Rename type 'CustomSql'
+1612706841469	Rename method 'buildStringQuery'
+1612707115940	Rename field 'strQuery'
+1612714086161	Rename method 'startQuery'
+1612717179014	Move compilation unit
+1612717186378	Delete element
+1613064835846	Extract local variable 'fields'
+1613065072631	Extract local variable 'annotations'
+1613116530924	Extract local variable 'query'
+1613123795276	Extract local variable 'fileld'
+1613124094106	Extract local variable 'annotation'
+1613131475171	Rename type 'MainConfig'
+1613131654837	Extract local variable 'query'

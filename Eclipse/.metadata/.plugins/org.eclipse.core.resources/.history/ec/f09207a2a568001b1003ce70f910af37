@@ -1,0 +1,23 @@
+package it.academy.cv_storage.model.entity;
+
+import java.util.Set;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+import org.hibernate.annotations.GenericGenerator;
+
+public class Knowledge {
+	
+	@Id
+	@GenericGenerator(name = "gen", strategy = "uuid")
+	@GeneratedValue(generator = "gen")
+	private String knowledgeId;
+	
+	private Set<String> knownTechnologies;
+	
+	private String candidateId;
+	
+
+
+}

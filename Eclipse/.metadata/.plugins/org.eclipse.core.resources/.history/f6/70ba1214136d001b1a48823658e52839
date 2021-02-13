@@ -1,0 +1,32 @@
+package it.academy.cv_storage.app;
+
+
+import it.academy.cv_storage.data.utilities.CustomSqlSelect;
+import it.academy.cv_storage.exception.ClassHasNoCorrectAnnotation;
+import it.academy.cv_storage.exception.StartSqlSentenceExeption;
+import it.academy.cv_storage.model.entity.Candidate;
+
+public class TestMeCustomSQl {
+	
+	public static void main(String[] args) {
+		
+		CustomSqlSelect customSql = new CustomSqlSelect();
+		try {
+			// ----------------1----------------------
+			String query1 = customSql.selectAllFrom(Candidate.class).getQuery();
+			System.out.println(query1);
+			
+			// ----------------2----------------------
+			String query2 = customSql.selectFrom
+					(Candidate.class,"firstName","middle_name").getQuery();
+			System.out.println(query2);
+			
+			
+		} catch (StartSqlSentenceExeption | ClassHasNoCorrectAnnotation e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+
+}

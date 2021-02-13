@@ -1,0 +1,8 @@
+1611508717163	Delete element
+1611508916094	Move 'DataSourceDBUnitUtilities.java' to 'dao'
+1611557883366	Rename resource 'shop_test.ds.properties'
+1611558113086	Rename method 'getTestConnection'
+1611558261359	Move 'utilities' to 'dao'
+1611558266286	Move 'utilities' to 'it'
+1611563317618	Move 'BaseTest.java' to 'dao'
+1611563322686	Move 'DataSourceReceiver.java' to 'dao'

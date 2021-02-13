@@ -1,0 +1,27 @@
+package it.academy.cv_storage.app;
+
+import java.lang.annotation.Annotation;
+import java.util.Arrays;
+
+import javax.persistence.Table;
+
+import it.academy.cv_storage.data.utilities.CustomSqlSelect;
+import it.academy.cv_storage.exeption.StartSqlSentenceExeption;
+import it.academy.cv_storage.model.entity.Candidate;
+
+public class Test {
+	
+	public static void main(String[] args) throws StartSqlSentenceExeption {
+
+		
+		CustomSqlSelect selector = new CustomSqlSelect();
+
+		//System.out.println(selector.selectAllFrom(Candidate.class).getQuery());
+		//System.out.println(selector.selectFrom(Candidate.class).getQuery());
+		//System.out.println(selector.selectFrom(Candidate.class,"Name","Surname").getQuery());
+		System.out.println(Candidate.class.getAnnotation(Table.class));
+
+		}
+	}
+
+}

@@ -1,0 +1,60 @@
+package it.academy.cv_storage.model.entity;
+
+import java.sql.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
+import it.academy.cv_storage.model.utilities.Gender;
+
+@Entity
+@Table(name="CANDIDATE")
+public class Candidate {
+	
+	@Id
+	@GenericGenerator(name = "gen", strategy = "uuid")
+	@GeneratedValue(generator = "gen")
+	private String id;
+	
+	@Column(name="FIRST_NAME")
+	private String firstName;
+	
+	@Column(name="MIDDLE_NAME")
+	private String middleName;
+	
+	@Column(name="LAST_NAME")
+	private String lastName;
+	
+	@Column(name="BIRTH_DATE")
+	private Date birthDate;
+	
+	@Enumerated(value = EnumType.STRING)
+	@Column(name="GENDER")
+	private Gender gender;
+	
+	@OneToMany()
+	private Phone phone;
+	
+	
+	private Site site;
+	
+	
+	private Email email;
+	
+	
+	private Skype skype;
+	
+	
+	private Knowledge knowledge;
+	
+	
+
+}

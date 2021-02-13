@@ -1,0 +1,33 @@
+package it.academy.cv_storage.model.entity;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
+@Entity
+@Table(name="email")
+public class Email {
+	
+	@Id
+	@GenericGenerator(name = "gen", strategy = "uuid")
+	@GeneratedValue(generator = "gen")
+	private String emailId;
+	
+	@Column(name="EMAIL_ADRESS")
+	private String emailAdress;
+	
+	@ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,
+			  CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinColumn(name="CANDIDATE_ID")
+	private String candidateId;
+	
+
+
+}

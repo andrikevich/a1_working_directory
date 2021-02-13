@@ -1,0 +1,17 @@
+INDEX VERSION 1.131
+I:\Andrikevich\GDR\Java\Eclipse\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4109961363.index
+\web-crawler\src\main\java
+I:\Andrikevich\GDR\Java\Eclipse\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2243570139.index
+\web-crawler\src\main\java
+I:\Andrikevich\GDR\Java\Eclipse\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1070315006.index
+\web-crawler\src\main\java
+I:\Andrikevich\GDR\Java\Eclipse\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1955328575.index
+\web-crawler-my\src\main\java
+I:\Andrikevich\GDR\Java\Eclipse\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\929293643.index
+\web-crawler-my\src\main\java
+I:\Andrikevich\GDR\Java\Eclipse\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1934623857.index
+\web-crawler\src\main\java
+I:\Andrikevich\GDR\Java\Eclipse\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2761501413.index
+\web-crawler-my\src\main\java
+I:\Andrikevich\GDR\Java\Eclipse\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2324431918.index
+\web-crawler\src\main\java

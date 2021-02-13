@@ -1,0 +1,24 @@
+package it.academy.cv_storage.data.utilities;
+
+
+
+public class CustomSql {
+	
+	private StringBuilder strQuery = new StringBuilder();
+	
+	public <T> CustomSqlSelect selectFrom(Class<T> clsFrom) {
+		strQuery.append(" ").append("from").append(" ")
+				.append(clsFrom.getSimpleName()).append(" ");
+		
+		
+		return this;
+		
+	}
+	
+	
+	public String buildStringQuery() {
+		return  strQuery.toString();
+		
+	}
+
+}

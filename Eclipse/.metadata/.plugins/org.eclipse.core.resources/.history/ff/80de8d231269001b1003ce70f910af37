@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+
+    <changeSet id="1" author="dmitry_an">
+        <sql>
+            CREATE DATABASE if not exists ListExpenses
+            CHARACTER SET utf8
+            COLLATE utf8_general_ci;
+        </sql>
+    </changeSet>
+
+    <changeSet id="2" author="dmitry_an">
+        <sql>
+            create table if not exists ListExpenses.receivers
+            (
+            num int,
+            name varchar (255),
+            primary key (num)
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet id="3" author="dmitry_an">
+        <sql>
+            create table if not exists ListExpenses.expenses
+            (
+            num int,
+            paydate Date,
+            receiver int,
+            value decimal
+            , primary key(num)
+            );
+
+        </sql>
+    </changeSet>
+
+    <changeSet id="4" author="dmitry_an">
+        <sql>
+            insert into ListExpenses.expenses (num, paydate, value, receiver) values
+            (1, '2011-5-10',20000,1),
+            (2, '2011-5-10',94200.0,2),
+            (3, '2011-5-11',10000,3),
+            (4, '2011-5-11',12950,2)
+            ;
+        </sql>
+    </changeSet>
+
+    <changeSet id="5" author="dmitry_an">
+        <sql>
+            ALTER TABLE `listexpenses`.`receivers` CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+        </sql>
+    </changeSet>
+
+    <changeSet id="6" author="dmitry_an">
+        <sql>
+            INSERT INTO `listexpenses`.`receivers` (`num`, `name`) VALUES
+            (1, 'Интернет провайдер \"Соло\"'),
+            (2,'Гипермаркет \"Корона\"'),
+            (3,'МТС');
+        </sql>
+    </changeSet>
+
+    <changeSet id="7" author="dmitry_an">
+        <sql>
+            ALTER TABLE `listexpenses`.`expenses`
+            ADD CONSTRAINT `FK_RECEIVER`
+            FOREIGN KEY (`receiver`)
+            REFERENCES `listexpenses`.`receivers` (`num`);
+        </sql>
+    </changeSet>
+
+
+</databaseChangeLog>

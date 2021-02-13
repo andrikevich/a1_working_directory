@@ -1,0 +1,24 @@
+package it.academy.cv_storage.data.utilities;
+
+
+
+public class CustomSqlSelect extends CustomSql {
+	
+	
+	
+	public <T> CustomSqlSelect selectFrom(Class<T> clsFrom) {
+		strQuery.append(" ").append("from").append(" ")
+				.append(clsFrom.getSimpleName()).append(" ");
+		
+		
+		return this;
+		
+	}
+	
+	@Override
+	public String startQuery() {
+		return  strQuery.toString();
+		
+	}
+
+}

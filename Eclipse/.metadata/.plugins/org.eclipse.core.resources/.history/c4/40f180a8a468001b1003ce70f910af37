@@ -1,0 +1,13 @@
+package it.academy.cv_storage.model.entity;
+
+public class Email {
+	
+	private String emailId;
+	
+	private String emailAdress;
+	
+	private String candidateId;
+	
+
+
+}

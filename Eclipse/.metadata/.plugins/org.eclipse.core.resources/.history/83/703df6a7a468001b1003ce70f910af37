@@ -1,0 +1,15 @@
+package it.academy.cv_storage.model.entity;
+
+import java.util.Set;
+
+public class Knowledge {
+	
+	private String knowledgeId;
+	
+	private Set<String> knownTechnologies;
+	
+	private String candidateId;
+	
+
+
+}

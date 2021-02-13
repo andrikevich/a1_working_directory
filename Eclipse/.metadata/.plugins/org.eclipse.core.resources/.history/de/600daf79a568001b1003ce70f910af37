@@ -1,0 +1,21 @@
+package it.academy.cv_storage.model.entity;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+import org.hibernate.annotations.GenericGenerator;
+
+public class Email {
+	
+	@Id
+	@GenericGenerator(name = "gen", strategy = "uuid")
+	@GeneratedValue(generator = "gen")
+	private String emailId;
+	
+	private String emailAdress;
+	
+	private String candidateId;
+	
+
+
+}

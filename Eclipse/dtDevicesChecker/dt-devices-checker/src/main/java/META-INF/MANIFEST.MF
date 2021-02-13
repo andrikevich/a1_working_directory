@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: by.a1.andrikevich.dt_devices_checker.Starter
+
+

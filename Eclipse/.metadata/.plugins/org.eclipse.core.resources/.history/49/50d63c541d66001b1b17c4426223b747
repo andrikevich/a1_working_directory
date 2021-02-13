@@ -1,0 +1,46 @@
+package by.a1.andrikevich.runner;
+
+import java.util.Arrays;
+
+import org.apache.commons.net.ftp.FTPFile;
+
+import by.a1.andrikevich.checker.Alarm;
+import by.a1.andrikevich.checker.FileCheckerCondition;
+import by.a1.andrikevich.ftp.FtpFileComparator;
+
+public class UsualFldrCheckebaleRunner implements Runnable {
+
+	
+	private FTPFile[] files;
+	private String folderName;
+	
+	
+
+	public UsualFldrCheckebaleRunner(FTPFile[] files, String folderName) {
+		this.files = files;
+		this.folderName=folderName;
+	}
+	
+	
+	@Override
+	public void run() {
+		while(true) {
+			System.out.println("Before " + Arrays.toString(files));
+			Arrays.sort(files,new FtpFileComparator());
+			System.out.println("After " + Arrays.toString(files));
+			if(FileCheckerCondition.isFileUpToDate(files[0])) {
+				try {
+					Thread.sleep(5*60*1000);
+					continue;
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}else {
+				new Alarm("There was no NEW log-files on FTP folder: " + folderName).doAlarm();
+			}
+			
+		}
+
+	}
+
+}
