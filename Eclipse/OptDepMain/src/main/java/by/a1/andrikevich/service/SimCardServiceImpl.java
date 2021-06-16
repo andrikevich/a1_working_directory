@@ -2,6 +2,7 @@ package by.a1.andrikevich.service;
 
 import java.util.List;
 
+import by.a1.andrikevich.exception.NoSuchSimCardException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,8 +14,8 @@ import by.a1.andrikevich.entity.SimCard;
 public class SimCardServiceImpl implements SimCardService {
 
 	private SimCardDao simCardDao;
-	
-	
+
+
 	@Autowired
 	public SimCardServiceImpl(SimCardDao simCardDao) {
 		this.simCardDao = simCardDao;
@@ -25,6 +26,14 @@ public class SimCardServiceImpl implements SimCardService {
 	public List<SimCard> findAll() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	@Transactional
+	public List<SimCard> findAllByParam(String param) {
+
+		List<SimCard> allSimsByParam = simCardDao.findAllSimsByParam(param);
+		return allSimsByParam;
 	}
 
 	@Override
@@ -61,9 +70,4 @@ public class SimCardServiceImpl implements SimCardService {
 		SimCard simCard = simCardDao.findByMsIsdn(theId);
 		return simCard;
 	}
-
-
-
-
-
 }

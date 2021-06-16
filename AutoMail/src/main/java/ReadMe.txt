@@ -1,0 +1,1 @@
+"i:\\Andrikevich\\Install\\!Bat\\STU_AutoMAil\\ListOfExcludingStu\\ExStu.txt"

@@ -13,3 +13,8 @@
 1613124094106	Extract local variable 'annotation'
 1613131475171	Rename type 'MainConfig'
 1613131654837	Extract local variable 'query'
+1613241616086	Rename type 'CustomSqlSelectWhere'
+1613244295242	Extract local variable 'customSqlCondition'
+1613247337342	Extract method 'conditionCreater'
+1613247486790	Rename method 'conditionCreater'
+1613247518891	Extract method 'concatinate'

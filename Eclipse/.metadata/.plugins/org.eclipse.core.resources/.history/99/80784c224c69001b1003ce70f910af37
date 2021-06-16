@@ -1,7 +1,0 @@
-package it.academy.cv_storage.data.utilities;
-
-public class CustomSql {
-	
-	protected StringBuilder strQuery = new StringBuilder();
-
-}

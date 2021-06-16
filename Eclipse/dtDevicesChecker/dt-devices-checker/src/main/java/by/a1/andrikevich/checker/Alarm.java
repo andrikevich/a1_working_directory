@@ -16,7 +16,7 @@ public class Alarm {
 		int j = 0;
 		while (j < 10) {
 			logger.severe(">>> A L A R M ! ! ! " + message);
-			for (int i = 0; i < 100; i++) {
+			for (int i = 0; i < 1000; i++) {
 				Toolkit.getDefaultToolkit().beep();
 				System.out.print("\007");
 

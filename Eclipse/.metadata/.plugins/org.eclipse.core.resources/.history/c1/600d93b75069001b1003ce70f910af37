@@ -1,5 +1,0 @@
-package it.academy.cv_storage.exeption;
-
-public class StartSqlSentenceExeption extends Exception {
-
-}

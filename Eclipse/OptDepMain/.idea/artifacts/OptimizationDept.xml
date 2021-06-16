@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="OptimizationDept">
+    <output-path>$PROJECT_DIR$/out/artifacts/OptimizationDept</output-path>
+    <root id="archive" name="OptimizationDept.war" />
+  </artifact>
+</component>

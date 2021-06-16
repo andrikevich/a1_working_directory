@@ -1,5 +1,0 @@
-package it.academy.cv_storage.model.utilities;
-
-public enum Gender {
-	MALE,FEMALE;
-}

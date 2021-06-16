@@ -1,5 +1,6 @@
 package by.a1.andrikevich.checker;
 
+import java.io.File;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -8,10 +9,12 @@ import org.apache.commons.net.ftp.FTPFile;
 public class FileCheckerCondition {
 
 	public static boolean isScannerFileCorrect(FTPFile file) {
-		if (file.getSize() > 4_500_000) {
+		if (file.getSize() > 4_500_000 ) {
+			return true;
+		} else if (!isExtOfFileTrp(file)){
 			return true;
 		} else {
-			return false;
+			return  false;
 		}
 	}
 
@@ -33,12 +36,18 @@ public class FileCheckerCondition {
 		if (file.getSize() > 1_500_000) {
 			return true;
 		} else {
-			if (file.getName().endsWith("trp")) {
+			if (isExtOfFileTrp(file)) {
 				return false;
 			} else
 				return true;
 		}
 
+	}
+
+	private static boolean isExtOfFileTrp (FTPFile theFile){
+		String fileName = theFile.getName();
+		String extOfFile = fileName.substring(fileName.length()-3, fileName.length());
+		return extOfFile.equals("trp");
 	}
 
 }

@@ -8,6 +8,7 @@
       <root url="jar://$PROJECT_DIR$/../LIB/Test/lib/sqlite-jdbc-3.16.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/../LIB/Test/lib/sqljdbc42.jar!/" />
       <root url="jar://$PROJECT_DIR$/../LIB/Test/lib/ucanaccess-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../LIB/Access/mssql-jdbc-6.4.0.jre8.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

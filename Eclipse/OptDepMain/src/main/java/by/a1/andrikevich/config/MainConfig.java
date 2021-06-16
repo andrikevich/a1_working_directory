@@ -53,16 +53,16 @@ public class MainConfig implements WebMvcConfigurer {
 	}
 	
 	@Bean
-	public DataSource securityDataSource() {
+	public DataSource dataSource() {
 		
 		// create connection pool
-		ComboPooledDataSource securityDataSource
+		ComboPooledDataSource dataSource
 									= new ComboPooledDataSource();
 				
 		// set the jdbc driver class
 		
 		try {
-			securityDataSource.setDriverClass(env.getProperty("jdbc.driver"));
+			dataSource.setDriverClass(env.getProperty("jdbc.driver"));
 		} catch (PropertyVetoException exc) {
 			throw new RuntimeException(exc);
 		}
@@ -77,25 +77,25 @@ public class MainConfig implements WebMvcConfigurer {
 		
 		// set database connection props
 		
-		securityDataSource.setJdbcUrl(env.getProperty("jdbc.url"));
-		securityDataSource.setUser(env.getProperty("jdbc.user"));
-		securityDataSource.setPassword(env.getProperty("jdbc.password"));
+		dataSource.setJdbcUrl(env.getProperty("jdbc.url"));
+		dataSource.setUser(env.getProperty("jdbc.user"));
+		dataSource.setPassword(env.getProperty("jdbc.password"));
 		
 		// set connection pool props
 		
-		securityDataSource.setInitialPoolSize(
+		dataSource.setInitialPoolSize(
 				getIntProperty("connection.pool.initialPoolSize"));
 
-		securityDataSource.setMinPoolSize(
+		dataSource.setMinPoolSize(
 				getIntProperty("connection.pool.minPoolSize"));
 
-		securityDataSource.setMaxPoolSize(
+		dataSource.setMaxPoolSize(
 				getIntProperty("connection.pool.maxPoolSize"));
 
-		securityDataSource.setMaxIdleTime(
+		dataSource.setMaxIdleTime(
 				getIntProperty("connection.pool.maxIdleTime"));
 		
-		return securityDataSource;
+		return dataSource;
 	}
 	
 	// need a helper method 
@@ -138,7 +138,7 @@ public class MainConfig implements WebMvcConfigurer {
 		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
 		
 		// set the properties
-		sessionFactory.setDataSource(securityDataSource());
+		sessionFactory.setDataSource(dataSource());
 		sessionFactory.setPackagesToScan(env.getProperty("hibernate.packagesToScan"));
 		sessionFactory.setHibernateProperties(getHibernateProperties());
 		

@@ -31,10 +31,11 @@ public class RetrieverFilesFromFtp {
 			FTPFile[] ftpFiles = ftpClient.listFiles(folderNameInFtp);
 
 			//remain only 10 files from folder
-			if(ftpFiles.length>10) {
+			int checkedNumberOfFiles = 16;
+			if(ftpFiles.length>checkedNumberOfFiles) {
 				result=	Arrays.stream(ftpFiles)
 									.sorted(new FtpFileComparator())
-									.limit(10)
+									.limit(checkedNumberOfFiles)
 									.toArray(FTPFile[]::new);
 			} else {
 				result=ftpFiles;

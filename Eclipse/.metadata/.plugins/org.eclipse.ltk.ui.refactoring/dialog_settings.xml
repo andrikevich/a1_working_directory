@@ -18,4 +18,8 @@
 		<item key="declarevariableTypeVar" value="false"/>
 		<item key="replaceOccurrences" value="true"/>
 	</section>
+	<section name="InferTypeArguments">
+		<item key="assumeCloneReturnsSameType" value="false"/>
+		<item key="leaveUnconstrainedRaw" value="false"/>
+	</section>
 </section>

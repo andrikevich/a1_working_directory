@@ -8,6 +8,7 @@ by\a1\andrikevich\runner\ScanFldrCheckebaleRunner.class
 by\a1\andrikevich\checker\Alarm.class
 by\a1\andrikevich\ftp\RetrieverFilesFromFtp.class
 by\a1\andrikevich\runner\UsualFldrCheckebaleRunner.class
+by\a1\andrikevich\test\Test1.class
 by\a1\andrikevich\checker\FolderCheckerCondition.class
 by\a1\andrikevich\ftp\FtpFileComparator.class
 by\a1\andrikevich\dt_devices_checker\Starter.class

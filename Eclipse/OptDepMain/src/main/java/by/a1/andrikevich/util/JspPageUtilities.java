@@ -1,7 +1,8 @@
 package by.a1.andrikevich.util;
 
-import java.io.UnsupportedEncodingException;
+
 import java.nio.charset.StandardCharsets;
+import java.util.regex.Pattern;
 
 import by.a1.andrikevich.entity.SimCard;
 
@@ -26,4 +27,35 @@ public class JspPageUtilities {
 		return theSimCard;
 	}
 
+	
+	/** 
+	 Check if inputed phone number is correct then 
+	 @return  <b>true</b>
+	 */
+	public static boolean isMsisdnCorrect (String msisdn) {
+		if (!msisdn.startsWith("375") || msisdn.isEmpty() || !isNumeric(msisdn) || (msisdn.length() != 12)) {
+			return false;
+		}
+		return true;
+	}
+	
+	public static boolean isIccidCorrect (String iccid) {
+		if(iccid.length() < 19 || iccid.isEmpty()) {
+			return false;
+		}
+		return  true;
+	}
+	
+		 
+	// for checking is String  is number
+		private static boolean isNumeric(String strNum) {
+			Pattern pattern = Pattern.compile("\\d+");
+		    if (strNum == null) {
+		        return false; 
+		    }
+
+		    return pattern.matcher(strNum).matches();
+		}
+	
+	
 }

@@ -6,6 +6,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\work\shop"/>
 			<item value="C:\hw\Module3\Task8.1"/>
 			<item value="C:\hw\Module3\All-Tasks-in-One"/>
 			<item value="I:\Download\hw\All-Tasks-in-One"/>

@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import by.a1.andrikevich.entity.Folder;
-import by.a1.andrikevich.util.FtpUtil;
+import by.a1.andrikevich.util.copier.FtpUtil;
+import by.a1.andrikevich.util.copier.FtpUtilMultyThreads;
+import by.a1.andrikevich.util.copier.ResultOfCopingSingleton;
 
 @Controller
 @PropertySource("classpath:config.properties")
@@ -27,11 +29,11 @@ public class FtpController {
 	@Value("${local.folder.url}")
 	private String startOfUrlForLocalFolder;
 	
-	FtpUtil ftpUtil = new FtpUtil();
+	
 	
 	@GetMapping("/copierFromFtp")
 	public String doChoosingFtpFolders (Model model) {
-
+	FtpUtil ftpUtil = new FtpUtilMultyThreads();
 	Folder theFolder = new Folder();
 	theFolder.setFolders (ftpUtil.retrieveListOfFolderNames());
 	model.addAttribute("folder", theFolder);
@@ -42,7 +44,7 @@ public class FtpController {
 	@PostMapping("/copyResult")
 	public String doCopierResult (@ModelAttribute ("folder") Folder theFolder, Model model, HttpServletResponse response) {
 		String  tmpRetrieveFldrName;
-
+		FtpUtil ftpUtil = new FtpUtilMultyThreads();
 		try {
 			tmpRetrieveFldrName = theFolder.getFolderNameForSaving().trim();
 			byte[] byteArrTmp = tmpRetrieveFldrName.getBytes("ISO-8859-1");
@@ -61,6 +63,9 @@ public class FtpController {
 		}
 		model.addAttribute("folder", theFolder);
 		model.addAttribute("countOfDownloadedFiles", ftpUtil.retrieveNumberOfDownloadedFiles(theFolder.getQuatityOfFiles()));
+		
+		// Clear Map for  statistics result
+		ResultOfCopingSingleton.getInstance().clearResultMap();
 		return "copier-result";
 	}
 }

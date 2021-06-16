@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-  
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>by.a1.andrikevich</groupId>
@@ -10,30 +11,30 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-    <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+	<properties>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
 	<dependencies>
-	<dependency>
-  <groupId>commons-net</groupId>
-  <artifactId>commons-net</artifactId>
-  <version>3.7.2</version>
-</dependency>
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>3.7.2</version>
+		</dependency>
 
 
-<dependency>
-    <groupId>net.java.dev.jna</groupId>
-    <artifactId>jna</artifactId>
-    <version>4.2.1</version>
-</dependency>
-<dependency>
-    <groupId>net.java.dev.jna</groupId>
-    <artifactId>jna-platform</artifactId>
-    <version>4.2.1</version>
-</dependency>
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna</artifactId>
+			<version>4.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna-platform</artifactId>
+			<version>4.2.1</version>
+		</dependency>
 
 
 
@@ -48,9 +49,12 @@
 					<source>11</source>
 					<target>11</target>
 				</configuration>
+				 
 			</plugin>
 			
-			<plugin> <!-- Build an executable JAR -->
+			 <!-- for executing 1 jar with all dependences in a separate folder "dependency-jars/"-->
+<!-- 
+			<plugin> 
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>3.1.0</version>
@@ -64,6 +68,9 @@
 					</archive>
 				</configuration>
 			</plugin>
+
+			Creating jar with dependency in separate folder
+			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
@@ -81,7 +88,27 @@
 					</execution>
 				</executions>
 			</plugin>
-
+ -->
+ <!-- for executing 1 jar with all dependenses in it -->
+ <plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+    <executions>
+        <execution>
+            <goals>
+                <goal>repackage</goal>
+            </goals>
+            <configuration>
+                <classifier>spring-boot</classifier>
+                <mainClass>
+                by.a1.andrikevich.dt_devices_checker.Starter
+                </mainClass>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+ 
+ 
 		</plugins>
 	</build>
 </project>

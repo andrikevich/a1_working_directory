@@ -35,7 +35,7 @@
 	</section>
 	<section name="org.eclipse.m2e.editor.dialogs.ManageDependenciesDialog">
 		<item key="width" value="673"/>
-		<item key="height" value="450"/>
+		<item key="height" value="527"/>
 		<item key="x" value="624"/>
 		<item key="y" value="220"/>
 	</section>
@@ -67,16 +67,10 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="it.academy.cv_storage"/>
-			<item value="by.a1.andrikevich.dt_devices_checker"/>
 		</list>
 		<list key="groupId">
-			<item value="it.academy"/>
-			<item value="by.a1.andrikevich"/>
 		</list>
 		<list key="artifactId">
-			<item value="cv-storage"/>
-			<item value="dt-devices-checker"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

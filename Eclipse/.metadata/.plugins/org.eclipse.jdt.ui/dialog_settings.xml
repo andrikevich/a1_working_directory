@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item key="TypeHierarchyViewPart.hierarchyview" value="2"/>
+	<item key="TypeHierarchyViewPart.qualifiednames" value="false"/>
+	<item key="TypeHierarchyViewPart.linkeditors" value="false"/>
+	<item key="TypeHierarchyViewPart.orientation" value="3"/>
 	<section name="JavaElementSearchActions">
 	</section>
 	<section name="completion_proposal_size">
@@ -81,13 +85,13 @@
 		<item key="expanded2" value="false"/>
 	</section>
 	<section name="ProblemSeveritiesConfigurationBlock">
-		<item key="expanded0" value="true"/>
+		<item key="expanded0" value="false"/>
 		<item key="expanded1" value="false"/>
 		<item key="expanded2" value="false"/>
 		<item key="expanded3" value="false"/>
 		<item key="expanded4" value="false"/>
 		<item key="expanded5" value="false"/>
-		<item key="expanded6" value="false"/>
+		<item key="expanded6" value="true"/>
 		<item key="expanded7" value="false"/>
 		<item key="expanded8" value="false"/>
 	</section>
@@ -154,13 +158,14 @@
 	<section name="FatJarPackageWizard">
 		<item key="FatJarPackageWizardPage.ANTSCRIPT_SAVE" value="false"/>
 		<item key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION" value="I:\Andrikevich\GDR\Java\Eclipse"/>
-		<item key="FatJarPackageWizardPage.LIBRARY_HANDLING" value="2"/>
+		<item key="FatJarPackageWizardPage.LIBRARY_HANDLING" value="1"/>
 		<item key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME" value="Starter - dt-devices-checker"/>
 		<item key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION" value="I:\Download\dt-devices-checker.jar"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
 			<item value="I:\Download\dt-devices-checker.jar"/>
 		</list>
 		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
+			<item value="I:\Andrikevich\GDR\Java\Eclipse.xml"/>
 			<item value=".xml"/>
 		</list>
 	</section>
@@ -176,5 +181,10 @@
 	</section>
 	<section name="JavaEditorCodeMiningConfigurationBlock">
 		<item key="expanded0" value="true"/>
+	</section>
+	<section name="ExtractMethodWizard">
+		<item key="ThrowRuntimeExceptions" value="false"/>
+		<item key="GenerateJavadoc" value="false"/>
+		<item key="AccessModifier" value="2"/>
 	</section>
 </section>
