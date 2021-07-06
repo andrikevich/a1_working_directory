@@ -25,7 +25,7 @@ public class VolteFldrCheckebaleRunner implements Runnable {
 	@Override
 	public void run() {
 		
-				int index = FolderCheckerCondition.isFolderHasVoLteFile(files);
+				int index = FolderCheckerCondition.isFolderHasVoLteOrVoicePrgnFile(files);
 				if(index >= 0) {
 					FTPFile volteFile = files[index]; 
 					if(FileCheckerCondition.isVolteFileCorrect(volteFile)) {
@@ -37,7 +37,7 @@ public class VolteFldrCheckebaleRunner implements Runnable {
 						}	
 						
 					}else {
-						new Alarm("The volte log files is too small!  " + folderName + "---" + volteFile.getName()).doAlarm();
+						new Alarm("The volte or voicePRGN log files is too small!  " + folderName + "---" + volteFile.getName()).doAlarm();
 					}	
 					
 					

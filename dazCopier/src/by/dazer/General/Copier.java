@@ -3,7 +3,6 @@ package by.dazer.General;
 
 import by.dazer.FTP.FTP;
 import by.dazer.LocalFolders.LocalFolder;
-import com.sun.xml.internal.bind.v2.TODO;
 
 import java.io.File;
 

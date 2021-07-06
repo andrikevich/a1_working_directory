@@ -47,7 +47,7 @@ public class ScanFldrCheckebaleRunner implements Runnable {
 					
 					
 				} else {
-					new Alarm("There is no scan log-file in a monitored folder! " + folderName).doAlarm();
+					new Alarm("There is **** NO SCAN **** log-file in a monitored folder! " + folderName).doAlarm();
 				}
 			
 	}

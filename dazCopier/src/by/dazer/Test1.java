@@ -5,6 +5,7 @@ import by.dazer.FTP.FromFTPtoLocalDisk;
 import by.dazer.Filter.TimeFilter;
 import by.dazer.General.Copier;
 import by.dazer.LocalFolders.LocalFolder;
+import by.dazer.jar.FromJar;
 import org.apache.commons.net.ftp.FTPClient;
 
 import java.io.*;
@@ -64,14 +65,22 @@ public class Test1 {
 
 
 //--------------------------------------------------------
-        while (true) {
-            Copier copier = new Copier();
-            FTP ftp1 = new FTP("185.36.170.87", "velcom", "velcom2016!", "cellfile/");
-            FTP ftp2 = new FTP("77.74.36.238", "tems", "mkSmet_k6", "For Dima lost/Drogichin");
-            LocalFolder localFolder1 = new LocalFolder("\\\\srv-logsblr-002\\d$\\Optima_server\\Comparative_DriveTests\\Quarterly\\2019\\Q2_2019\\");
-            LocalFolder localFolder2 = new LocalFolder("i:\\Download\\2222");
-            copier.copyFld(localFolder1, ftp2);
-        }
+//        while (true) {
+//            Copier copier = new Copier();
+//            FTP ftp1 = new FTP("185.36.170.87", "velcom", "velcom2016!", "cellfile/");
+//            FTP ftp2 = new FTP("77.74.36.238", "tems", "mkSmet_k6", "For Dima lost/Drogichin");
+//            LocalFolder localFolder1 = new LocalFolder("\\\\srv-logsblr-002\\d$\\Optima_server\\Comparative_DriveTests\\Quarterly\\2019\\Q2_2019\\");
+//            LocalFolder localFolder2 = new LocalFolder("i:\\Download\\2222");
+//
+//            copier.copyFld(localFolder1, ftp2);
+//        }
+
+        String relativeFilePath = "BOOT-INF/classes/config.properties";
+        String zipFilePath = "i:/1.jar";
+        FromJar.copyFileFromJarToFolder(zipFilePath,relativeFilePath,"i:\\Download\\");
+
+
+
 
     }
 }

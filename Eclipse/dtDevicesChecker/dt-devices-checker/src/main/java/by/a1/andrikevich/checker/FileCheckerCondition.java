@@ -33,7 +33,7 @@ public class FileCheckerCondition {
 
 	public static boolean isVolteFileCorrect(FTPFile file) {
 
-		if (file.getSize() > 1_500_000) {
+		if (file.getSize() > 1_000_000) {
 			return true;
 		} else {
 			if (isExtOfFileTrp(file)) {
