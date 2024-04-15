@@ -1,0 +1,14 @@
+SELECT GroupClast, avg (Lon) AS ["Longitude"], avg (Lat) AS ["Latitude"], problem, type, RAT, CGI_SC, status, count(*) AS kolvo
+FROM dot
+GROUP BY GroupClast, problem, type, RAT, status, CGI_SC
+having count(type)>1;
+----------------------
+
+Сразу создаст новую таблицу:
+
+SELECT GroupClast, avg (Lon) AS ["Longitude"], avg (Lat) AS ["Latitude"], problem, type, RAT, CGI_SC, status, count(*) AS kolvo
+INTO Test
+FROM dot
+GROUP BY GroupClast, problem, type, RAT, status, CGI_SC
+HAVING count(type)>1;
+-----------------------------------

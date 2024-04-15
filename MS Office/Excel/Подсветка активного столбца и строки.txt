@@ -1,0 +1,129 @@
+
+Создайте новую или откройте существующую рабочую книгу Excel.
+Переключитесь в редактор кода VBA, нажав комбинацию клавиш Alt+F11.
+Слева Вы должны увидеть панель "Обозреватель проектов". Если не видите - нажмите Ctrl+R.
+Найдите Вашу рабочую книгу в списке проектов. Она будет выглядеть как "VBAProject(название книги)".
+Найдите в списке компонентов проекта (в папке Microsoft Excel Objects) пункт "ЭтаКнига". Если необходимо, щелкните на плюсике рядом с названием рабочей книги - это отобразит список ее компонентов.
+Дважды щелкните на пункте "ЭтаКнига" или щелкните на нем правой кнопкой, а затем выберите пункт View Code (просмотреть код) в контекстном меню.
+Вставьте приведенный ниже код в окно просмотра кода.
+==================================================================
+А вот и полный код решения:
+
+Private Const ROW_MARKER As String = "МаркерСтроки"     ' имя для линии, подчеркивающей строку
+Private Const COLUMN_MARKER As String = "МаркерСтолбца" ' имя для линии, выделяющей столбец
+ 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' Процедура, срабатывающая при изменении выделенной ячейки на
+' любом листе рабочей книги.
+'
+Private Sub Workbook_SheetSelectionChange(ByVal sh As Object, ByVal Target As Range)
+    ' Выбор границ диапазона для рисования линий
+    Dim MarkerRange As Range
+    Set MarkerRange = ChooseMarkerRange(Target)
+    
+    If [A1].Value > 0 Then
+        ' Показываем линии, только если в ячейке А1 на листе есть значение
+        ' и оно больше нуля
+        ShowMarkerLines MarkerRange
+    Else
+        ' Если А1 - пустая или содержит 0, тогда удаляем наши линии
+        HideMarkerLines
+    End If
+End Sub
+ 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' Удаление маркерных линий
+'
+Private Sub HideMarkerLines()
+    Dim sh As Shape
+     
+    ' Если название объекта "Фигура" на рабочем листе совпадает с
+    ' определенными для маркерных линий именами, то удаляем такой
+    ' объект
+    For Each sh In ActiveSheet.Shapes
+        If sh.Name = ROW_MARKER Or sh.Name = COLUMN_MARKER Then
+            sh.Delete
+        End If
+    Next
+End Sub
+ 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' Настройка отображения маркерных линий
+'
+Private Sub ShowMarkerLines(ByVal rng As Range)
+    ' Создаем маркер строки, если его нет на листе
+    If ThereIsNoLineMarker(ROW_MARKER) Then
+        CreateMarkerLine ROW_MARKER
+    End If
+    ' Настраиваем маркер строки
+    With ActiveSheet.Shapes(ROW_MARKER)
+        .Top = ActiveCell.Offset(1, 0).Top
+        .Left = rng.Left
+        .Width = rng.Cells(1, rng.Columns.Count + 1).Left - rng.Left
+    End With
+     
+    ' Создаем маркер столбца, если его нет на листе
+    If ThereIsNoLineMarker(COLUMN_MARKER) Then
+        CreateMarkerLine COLUMN_MARKER
+    End If
+    ' Настраиваем маркер столбца
+    With ActiveSheet.Shapes(COLUMN_MARKER)
+        .Top = rng.Top
+        .Left = ActiveCell.Left
+        .Height = rng.Cells(rng.Rows.Count + 1, 1).Top - rng.Top
+    End With
+End Sub
+ 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' Создание маркерных линий, присвоение им определенных имен
+'
+Private Sub CreateMarkerLine(ByVal markerName As String)
+    Dim line As Shape
+    Set line = ActiveSheet.Shapes.AddLine(1, 1, 1, 1)
+    line.ShapeStyle = msoLineStylePreset10
+    line.Name = markerName
+End Sub
+ 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' Вспомогательная процедура для определения того, создана ли
+' уже маркерная линия с указанным именем
+'
+Private Function ThereIsNoLineMarker(ByVal markerName As String) As Boolean
+    Dim sh As Shape
+    Dim result As Boolean
+    result = True
+     
+    For Each sh In ActiveSheet.Shapes
+        If sh.Name = markerName Then
+            result = False
+            Exit For
+        End If
+    Next
+     
+    ThereIsNoLineMarker = result
+End Function
+ 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' Выбор диапазона, в котором будут отображаться маркерные линии
+'
+Private Function ChooseMarkerRange(ByVal Target As Range) As Range
+    Dim result As Range
+     
+    If Not (Target.ListObject Is Nothing) Then
+        ' Если выделенная ячейка находится в структурированной
+        ' таблице, то подчеркиваем строки и столбцы только в
+        ' пределах этой таблицы
+        Set result = Target.ListObject.Range
+    ElseIf Target.CurrentRegion.Cells.Count > 1 Then
+        ' Если выделенная ячейка находится вне таблицы, но в
+        ' некотором заполненном диапазоне ячеек, то подчеркиваем
+        ' строки и столбцы только в этом диапазоне
+        Set result = Target.CurrentRegion
+    Else
+        ' Во всех остальных случаях подчеркиваем строки и
+        ' столбцы только в рамках видимого диапазона
+        Set result = ActiveWindow.VisibleRange
+    End If
+ 
+    Set ChooseMarkerRange = result
+End Function

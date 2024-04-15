@@ -1,0 +1,9 @@
+     Для расчета покрытия:
+     1. Лучше закрепить области:
+       --Выбираем Geo->Zones-> Filtering Zone-> ПКМ-> Fit Zone to Map Window
+                            -> Computation Zone-> ПКМ-> Fit Zone to Map Window
+     2. Закладка Network-> Выбираем нужные сайты.
+     3. ПКМ по Predictions-> New Prediction-> Выбираем по чес рисуем->Ok
+     4. General: Resolution для негорода 100м, для города 10м 
+     5. Conditions: With a margin:=0dB 
+     6. Выбираем наш полученный слой Predictions->ПКМ->Calculate              

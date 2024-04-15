@@ -1,0 +1,18 @@
+1.  Темс автоматик CDR:
+
+Database Type: SQL Server
+Driver (JDBC): SQL Server (jTDS)
+Database URL: jdbc:jtds:sqlserver://ntsqlqp001.austria.local:2145
+                    если не покатит имя сервера то ip 10.236.116.242
+Authentication             SQL Server Authentication
+Userid: vel_read
+Password: HT7)huzZ
+===============================
+STU CDR
+Database Type: SQL Server
+Driver (JDBC): SQL Server (jTDS)
+Database URL: jdbc:jtds:sqlserver://10.236.116.121:2245
+Authentication             SQL Server Authentication
+Userid: vel_read
+Password: Pwhsds%y
+================================

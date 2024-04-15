@@ -1,0 +1,86 @@
+    ===========  Paragon 1  ========= 
+    http://desktop-6kusb8q
+   lgn: ASUS_5
+   pwd: qwer
+   TeamViewer
+   id: 1385496806 
+   pwd: 2+sh3
+   
+       ===========  Paragon 2  ========= 
+    http://DESKTOP-GG6CA6B
+   lgn: A1
+   pwd: qwer
+   TeamViewer
+   id: 1 278 862 519
+   pwd: 2+sh3
+
+--------------------------------------------------------------------------
+РУССКАЯ POLQA
+
+В версии 2.3 системы TEMS Paragon была добавлена возможность использования речевых последовательностей на русском языке для оценки качества речи по алгоритму POLQA. 
+Для активации последовательности на русском языке необходимо остановить TEMS Paragon и добавить файл TEMS.Equipment.QualityMeasurement.Settings.AqmLanguageSettings.config 
+(во вложении i:\Andrikevich\GDR\!!!My_manuals\Ascom\Paragon\TEMS.Equipment.QualityMeasurement.Settings.AqmLanguageSettings.config) 
+в папку C:\Users\<user>\AppData\Local\InfoVista\TEMS\Paragon\<version>.  
+C:\Users\ASUS_5\AppData\Local\InfoVista\TEMS\Paragon\3.2
+Дальнейшее изменение последовательностей возможно путем редактирования параметра <value> </value>  в файле TEMS.Equipment.QualityMeasurement.Settings.AqmLanguageSettings.config. 
+Полный список доступных последовательностей доступен в файле Settings.AqmLanguageSettings.txt.
+
+    private static readonly Identity EnglishID = new Identity("BF231BD3-3428-487A-9CCE-5743E04D222D");
+    private static readonly Identity ChineseID = new Identity("F418F993-FF20-4081-B878-28FBBF4F1FDB");
+    private static readonly Identity Chinese2ID = new Identity("445C71EF-9957-4705-A3EE-1FED36F5EAA5");
+    private static readonly Identity PolishID = new Identity("30877E52-FABD-42CC-BDDD-7105F1181D15");
+    private static readonly Identity English2ID = new Identity("146F5299-D7F2-41B2-81BE-2564B1621877");
+    private static readonly Identity English2ObsoleteID = new Identity("8A3051F9-5C99-4080-A751-4A2A17A44B4F");
+    private static readonly Identity GermanID = new Identity("211CF2E3-3BDB-4084-980D-4E9392B0ECB0");
+    private static readonly Identity GermanObsoleteID = new Identity("81BB1E39-886C-4F6D-8F5D-D6F7FC1AAD3E");
+    private static readonly Identity English3ID = new Identity("C1BABE92-5A04-4F30-A768-B2814AB267EE");
+    private static readonly Identity TurkishID = new Identity("BE6D1376-8359-4302-B2FD-7A29CE148C14");
+    private static readonly Identity English4ID = new Identity("148A6620-0AF8-4CB9-8C78-728F2182DD64");
+    private static readonly Identity RussianID = new Identity("AD48BB3F-72FE-4F38-94BC-54C1CC42BED4");
+    private static readonly Identity English5ID = new Identity("230384EC-9F6B-4571-A9B9-16DD2F51E582");
+    
+    
+--------------------------------------------------------------------------------------------------------------------    
+Для подключения Samsung S8 from Voyager to Paragon.
+
+ -  снять галку автостарта приложения Voyager:
+Go to TEMS Voyager app, tap on the top right corner lines > Settings > Voyager > General settings > TEMS Pocket > uncheck "Autostart TEMS Pocket"
+- Go back to the main Voyager screen and the tap again on the top-right corner line to open the menu > Exit > "Are you sure you want to exit?" . YES > "Do you want to close the back end as well?" > YES.
+After that reboot the device. Make sure voyager app is not starting automatically.
+If so, then connect the device to TEMS Paragon and check if it is recognized properly.
+
+-------------------------------------------------------------------------------
+
+ Апгрейд S9 c Андроид 8 на Андроид 9 или переустановка системы Андроид
+ 
+ 1) Открываем мануал \\srv-callg-002\c$\DmAn\Install\TEMS Paragon\S9_Issue\Samsung Galaxy S9 SM-G960F 1.1.0.8 PIE\Samsung Galaxy S9 SM-G960F 1.1.0.8 PIE\Manufacturing Instructions for SM-G960F Android 9.pdf
+ 2) Вынуть сим карты
+ 3) Переходим сразу к пункту 2 мануала
+    3.1  На пункте 9) Perform “Phone Settings SM-G960F Android 9.txt” when phone has started небольшие изменения в инструкции
+    3.2 \\srv-callg-002\c$\DmAn\Install\TEMS Paragon\S9_Issue\Samsung Galaxy S9 SM-G960F 1.1.0.8 PIE\Samsung Galaxy S9 SM-G960F 1.1.0.8 PIE\Phone Settings SM-G960F Android 9.txt
+    3.3 в пункте  "Choose a Wi-Fi network" select "Next" without connecting to Wi-Fi    НАДО ВКЛЮЧИТЬ WiFi начнется проверка обновлений, это ОК
+    3.4 далее все согласно инструкции
+4) В пункте 3 манула (Root)  все делать согласно Инфовистовской инструкции (WiFi не надо включать , как это было сделано в 3.3)
+ 
+
+
+ URL for TEMS Director
+    https://temsopt.a1.by:13443/Fleet/AgentPortal/AgentPortal.svc
+    
+    
+    
+-----------------------------------------------------------------------------
+S10 to Paragon
+Up Volume + bixby + Power
+Для Magisk  все зеленое
+ http://online.mytemscloud.com/TPA/3.2.1/ReleaseNote/Content/Starting_and_restarting_the.htm?tocpath=_____3
+Starting and restarting the TEMS Samsung Galaxy S10
+In order to boot the device using the pre-installed TEMS firmware, all models of the Samsung Galaxy S10 must be started in the following manner:
+Power on by pressing Volume up + Bixby + Power button, release all buttons when the Bootloader warning is displayed: Started with TEMS firmware, full functionality
+If started/restarted in the following manner users can get other results:
+Tapping Restart in the phone menu: Started with Samsung original firmware, no TEMS functionality.
+Power on by pressing Volume up + Bixby + Power button, keep holding all buttons when the Bootloader warning is displayed: Started in Recovery mode.
+--------------------------------------------------------------------------
+
+Не может подключиться к Директору,  и при запуске вручную WO выключается удаленный рабочий стол:
+Зайти в настройки локальной сети, скорее всего после обновления Виндовс появились локальные сети, надо их отключить, чтобы остался только 1 ВиФИ для Paragon1

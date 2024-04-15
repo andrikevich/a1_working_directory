@@ -1,0 +1,56 @@
+Чтобы отправить через curl:
+1)ложим в папку D:\Documents\GCTO\curl-7.38.0-devel-mingw32\bin\ файл который надо отправить
+2) запустить curl.exe
+3) пишем в командной строке через FarManager (зайдя в папку D:\Documents\GCTO\curl-7.38.0-devel-mingw32\bin\ пишем снизу cmd? а потом ссылку ниже, где вместо 2014_10 имя файла нужного):
+
+curl.exe -s --verbose --data-binary @1.xml http://quality.ms.mobilkom.at:8001
+
+где, 20147_10_(2) название xml файла, который необходимо передать.
+
+
+=================================
+Для запуска с командной строки
+
+"d:\Documents\GCTO\curl-7.38.0-devel-mingw32\bin\curl.exe" -s --verbose --data-binary @1.xml http://quality.ms.mobilkom.at:8001
+=================================
+
+=================================
+BAT ФАЙЛ ДЛЯ АВТОМАТИЧЕСКОЙ ОТПРАВКИ
+
+@echo off
+"d:\Documents\GCTO\curl-7.38.0-devel-mingw32\bin\curl.exe" -s --verbose --data-binary @"d:\Documents\GCTO\curl-7.38.0-devel-mingw32\bin\17.xml" http://quality.ms.mobilkom.at:8001
+
+"d:\Documents\GCTO\curl-7.38.0-devel-mingw32\bin\curl.exe" -s --verbose --data-binary @"d:\Documents\GCTO\curl-7.38.0-devel-mingw32\bin\18.xml" http://quality.ms.mobilkom.at:8001
+
+=================================
+4) на почту придет подтверждение в котором необходимо проверить: например
+tag.resource.bsc/2014-10-01T00:00:00/P1M ERROR > The requested segment combination didn't yield a unique result!
+чтобы отсуствовало The requested segment combination didn't yield a unique result!
+
+
+================ИЗМЕНЯТЬ В ССЫЛКЕ ДАННЫЕ==================
+!!!Полная ссылка в формате HTML без драйв теста (месячные данные)
+http://kpi.telekomaustria.group/tag/rest/kpiValue?tinyid=o22w,95es,l3f7,jo9i,2ttl,429w,216p,6bv2,yijh,xrl0,mobo,qr8m,ovhs,muny,sf0w,er0i,ctat,eyno,oyan,gjbg,z7va,aqsi,jyv9,QKJHRQ,skej,8g7i,p1ry,hvpa,6kbb,mud2,tsj5,h0h9,ayrv,13jy,GJGVBH,obhp,q6ef,k6e1,3852,EYPARP,buc3,a3lz,s5zd,886y,qajf,clnz,2lpn&time=2015-02-28&span=15&showdate=1&shownull=1&decsep=,&format=html&headers=name
+
+
+========================================================
+
+Ссылка для получения данных водафоновских KPI ^
+http://kpi.telekomaustria.group/tag/rest/kpiValue?tinyid=MUBRAA,QEWUBM,YWRPPH,UEVYBF,KZHOEP,CPOGDK,GHLXQM,QMYHOC,SJBWFU,YOPCDR,GJQWUC,CRTFHA,SLGVJK,KBNNIF,OTJEWH,WBYMTW,AWZCLP,UWSLPO,MYPBAX,IGTKMU,AYECPF,SNLUNA,WFILBD,EOWTYR,QWXLUI,CHMTQT,CZNKJQ,OBEJYX,UOUCIL,KJHSKV,GRKBXS,MKUEKT,GZIKEW,AKJFZB,UUNMLY,MMZDOJ,QCRVXV,IUCNAH,ECGWME,YIWSZD,KRFBSY,KLMROL,GTPABJ,WNCQDT,CBTJNG,SVFZPQ,ODJICO,EYVXEY,QGBUFC,SXKYTG,OFOHGE,EABXIO,KNRQSB,AIEGVL,WPHPHJ&time=2014-9-30&span=13&showdate=1&shownull=1&decsep=,&format=html&headers=fullname
+
+
+
+Ссылка на дневные данные по техминутам и трафику
+http://kpi.telekomaustria.group/tag/rest/kpiValue?tinyid=vo3h,vl0u,nt1j,vo3h,vl0u,nt1j&time=2014-12-30&span=30&showdate=1&shownull=1&decsep=,&format=html&headers=name
+
+
+"d:\Documents\GCTO\curl-7.38.0-devel-mingw32\bin\curl.exe" -s --verbose --data-binary @1.xml http://quality.ms.mobilkom.at:8001
+-----------------------------------------
+
+Витины данные:
+http://kpi.telekomaustria.group/tag/rest/kpiValue?tinyid=o22w,95es,jo9i,2ttl,ovhs,muny,CJLVGB,UWMOBG,skej,8g7i,p1ry,IYKAMV,YWHOWL,EYPARP&time=2014-10-30&span=13&showdate=1&shownull=1&decsep=,&format=tsv&headers=name
+
+
+SQI где нули:
+http://kpi.telekomaustria.group/tag/rest/kpiValue?tinyid=grs7,agof,ckj5,xdl3,s0ul,ote0,e0xq,l40x,qo0p,mg6s,c2xj,er2w,kx81,ypsr,mb0n&time=2014-10-30&span=13&showdate=1&shownull=1&decsep=,&format=tsv&headers=name
+

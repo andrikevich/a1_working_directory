@@ -1,0 +1,6 @@
+Для пуск---выполнить
+msaccess.exe "\\Optima_server\STATISTICS_ARCHIVE\TA_Statistics\Problems\Maps\Cities\Linked.mdb" /x Run_after_adding
+
+-----------------------------------------------------
+Для батника:
+"c:\Program Files\Microsoft Office\Office14\MSACCESS.EXE" "\\Optima_server\STATISTICS_ARCHIVE\TA_Statistics\Problems\Maps\Cities\Linked.mdb" /x Run_after_adding

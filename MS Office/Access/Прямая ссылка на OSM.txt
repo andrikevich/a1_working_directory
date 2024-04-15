@@ -1,0 +1,7 @@
+Для создания прямой гиперссылки необходимо в начале строки стасить решетку (#),
+иначе не будет сразу открываться в браузере.
+"#http://www.openstreetmap.org/?mlat="&Main.Lat&"&mlon="&Main.Lon
+
+
+Создаем запрос на обновление таблицы main:
+UPDATE main SET Link_to_Map = "#http://www.openstreetmap.org/?mlat="&Main.Lat&"&mlon="&Main.Lon;

@@ -1,0 +1,58 @@
+Как сделать дамп ключа:
+
+
+For TI 16 HASP they go to:
+Start menu/All programs/Ascom/TEMS Products/TEMS Investigation 16/HASP SRM Remote Update
+
+For TI 17 HASP they go to:
+Start menu/All programs/Ascom/TEMS Products/TEMS Investigation 17/Sentinel LDK Remote Update
+
+
+---------------------------------------------------------------------
+How to Fix TI Crashing at Launch on Windows 10
+Product: TEMS Investigation
+Version: Any supported version
+Symptom:
+TEMS Investigation will crash on Windows 10 when you attempt to launch the application with a TEMSNativeUI error message.
+TEMSNativeUI overflow
+
+Solution 1:
+1. Open up Registry Edit by pressing WINDOWS KEY + R and type in "regedit" 
+howto windows10 crash 01
+
+2. Locate the registry key: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion\Windows\USERPostMessageLimit"
+howto windows10 crash 02
+
+3. Change the value to a decimal and then make the change from 10000 to 20000.
+howto windows10 crash 03
+
+4. At this time log out/reboot the PC for the change to take effect.
+5. Now you should be able to Launch TEMS Investigation correctly on Windows 10.
+Solution 2:
+If the above has not resolved the problem you follow these steps:
+
+1. Open Windows Explorer and browse to: C:\Users\<yourusername>\AppData\Local\InfoVista
+
+Note: AppData is a hidden folder you unless you have show hidden files and folders enabled in Windows Explorer you will not see it. If that is the case type it manually. 
+
+2. Rename the InfoVista folder to InfoVista_temp for example.
+
+3. Open TEMS Investigation.
+
+---------------------------------------------
+Missing LTE Information Element "UE Tx Power"
+Symptom:
+The user cannot find the LTE Information Element for "UE Tx Power".  When Post-Processing this metric is not available.
+
+Solution:
+This information element is dependent on the chipset of the device.  For Qualcomm Devices, there are two different IEs available which are UE PUCCH Tx Power and UE PUSCH Tx Power. 
+
+Tip:
+
+To find out more information on supported chipset Information Elements, please check this section of the user's manual for Information Element Support in Devices: 
+
+http://online.mytemscloud.com/TI/20.1/HtmlHelp/Default.htm#Topics_I/Information_Element_Support_in_devices.htm
+
+ 
+ ------------------------------------------
+ 

@@ -1,0 +1,4 @@
+mvn clean test -Dsurefire.suiteXmlFiles=c:\work\selenium\src\test\resources\test-suites\testng.xml
+
+C:\projectfred> java -cp "path-tojar/testng.jar:path_to_yourtest_classes" org.testng.TestNG testng.xml
+c:\java\jdk-11\bin\java.exe -cp "c:\work\selenium\target\test-classes;c:\work\selenium\lib\*" org.testng.TestNG c:\work\selenium\src\test\resources\test-suites\testng.xml

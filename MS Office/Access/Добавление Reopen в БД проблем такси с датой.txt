@@ -1,0 +1,1 @@
+UPDATE (SELECT m1.status FROM main AS m1 INNER JOIN Main AS m2 ON m1.CGI_SC=m2.CGI_SC WHERE (((m1.problem)='DropCall') And ((m1.status) In ('To be cheked','repaired')) And ((m2.problem)='DropCall') And ((m2.status)='Open') And (((m1.Lat-m2.Lat)*(m1.Lat-m2.Lat)+(m1.Lon-m2.Lon)*(m1.Lon-m2.Lon))<=0.000000582169)))  AS mmm SET Status = 'Reopen' &'--'& DATE();

@@ -1,0 +1,15 @@
+Backup for OLAP Cubes/ Statistics:
+d:\TDE_OLAP_Backup\
+
+pwd: 2+sh3
+
+
+*****************************
+Чтобы удалить *.mdf файлы (сырые данные из логов)
+d:\Infovista\TD\Measurement\RowsData\
+Нужно:
+1) В SQL Studio остановить SQL Server srv-tde-001
+2) Удалить mdf
+3) Запустить SQL сервер
+
+*****************************

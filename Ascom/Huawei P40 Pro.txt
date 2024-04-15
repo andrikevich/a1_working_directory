@@ -1,0 +1,16 @@
+HiSilicon License Option, C
+
+
+SA  --- NSA ----5G
+
+Dial *#*#2846579159#*#* -> 5.Background settings -> 11. Protocol Testability Configuration -> 71. Set NSA or SA Modae To modem -> SA mode
+
+******************************
+ODM TEMS Status   (когда например FTP active but not licensed)
+1. Restart it
+2. Open tems status
+3. Twice click to update and ondevice Server version downgraded on display
+4. then connect usb cable
+5. and twice update in TEMS Status 
+
+*****

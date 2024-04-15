@@ -1,0 +1,25 @@
+При апдейте TEMS Director пропала статистика в меню Dashboard? необходимо удалить файл с настройками в RTU:
+
+Steps:
+1.	Stop FMAgent in Services (Task Manager > Services > FMAgent)
+2.	Delete D:\CPS\AppData\Ascom\TEMS\FMAgent\Shared\TEMS.CPS.FmAgent.Settings.PerformanceCounterMetadata.PerformanceCounterMetadataConfigurationSettings.config
+3.	Restart FMAgent.
+
+------------------------------------------
+Установка апгрейда TEMS Director:
+1. Надо остановить службу ISS 
+    Server Manager --> Dashboard --> Tools --> Internet Information Services (ISS) Manager
+    Прав мышка по SRV-LOGSBLR-004(VELCOM\dmitry_an) -->  Stop
+
+2.  Control Panel\All Control Panel Items\Programs and Features
+    2.1 Удаляем TEMS Director 2.2.1|Fleet (О окне выбора компонент отключить установку DataBase)   
+    2.2 Все установленные плагины, TEMS Automatic Plugin for FLEET 2.2.1 и др.
+    
+3. Устанавливаем новую версию  TEMS Director 2.2.1|Fleet, согласно мануалу "TEMS Director 2.2.1 - Fleet Installation Guide.pdf" 
+  И РЕМАРКАМИ "i:\Andrikevich\GDR\MTU\TEMS Director\Instaliation tips\"
+  
+4. Устанавливаем необходимые плагины для новой версии
+5. Запускаем службу ISS см.п.1
+
+-------------------------------------------    
+  

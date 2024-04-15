@@ -1,0 +1,13 @@
+Terminated .... javaw.exe
+https://www.youtube.com/watch?v=JDzwEASoOLI&ab_channel=TutorialsNow
+Добавить в eclipse.ini
+-vm
+f:\Documents\Java\jdk-11\bin\javaw.exe
+
+.....
+
+-Dosgi.requiredJavaVersion=11
+--add-modules=ALL-SYSTEM
+
+
+******************************

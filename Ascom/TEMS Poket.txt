@@ -1,0 +1,14 @@
+ === MISSING CONTROL FUNCTION IN TEMS POCKET ===
+ 
+Product: TEMS Pocket
+Version: 21.x onwards
+We recently seen reports that customers are not able to see the control function in TEMS Pocket. Typically this is something that has been reported on Samsung 10 family of devices (973, 977, A90). We have three suggestions for you.
+
+First make sure your device is actually in "TEMS" mode. Power on by pressing Volume up + Bixby + Power button, release all buttons when the Bootloader warning is displayed. You can also check this in TEMS Status application by checking that "TEMS Command Server" says "Supported".
+Before you open the TEMS Pocket application, wait a few mins for all the services to start-up.
+If you've tried the above steps and the control function is still not visible it's likely due to a TEMSification problem (i.e how the device was manufactured/flashed.). Note: You will need to install TEMS Pocket again after this.
+Turn off the phone (hold power button and select “Power Off” from the menu)
+Now, press and hold Power+Home+Volume Up buttons..
+Keep holding until device logo shows up and phone restarts again, you should enter recovery mode.
+Select the "wipe cache partition" and perform it. Once complete you are returned to the menu and then select "Power Off". 
+Power on the device again and follow the Android Wizard, install TEMS Pocket and see if the control function is available.

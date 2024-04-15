@@ -1,0 +1,314 @@
+         R T U  -- 4
+
+Подключение сканнера PcTEl Ex:
+Для подключения сканнера PC тел надо подключать в задний порт RTU!
+
+при подключении к монитору, в devmgmt.msc проверить  PCTel в Com портах.
+
+***********************************
+*
+Отключение Upload и сбо логов в ноут:
+1.  В свойствах РТУ--Options--устанавливаем Dayly restart (1 раз  в сутки прибор ОБЯЗАН рестартануть)
+2. В закладке Upload ---Manual Upload --"On"
+3. Подключить ноут через кросоверный патчкорд и запустить RSI
+4. Переодически нажимать вручную Download Log files
+5.  Можно удаленно подключиться к рабочему столу РТУ:
+    5.1 Имя РТУ (а затем, пингонув и ip) можно узнать после нажатия Download logfiles, в указанной папке будет создана подпапка с нужным номером
+    login: cps
+    paswd: tems00
+
+
+!!!!!
+Event файлы все равно будут продолжать аплоадиться.
+
+****************************************
+*
+This process is done by RTU in order to split big logfiles to smaller parts to be easier transfer through internet. 
+ComServer collects all small parts unify them into original big logfile.
+In order to merge small parts into original logfile, all pieces are required.
+There is no special utility, comserver performs that task.
+
+You can change size of the logfile that would be splited, there is a setting on RTU in file:
+B:\CONFIG\OPTIONS.ini
+Parameter:
+MaxLogFileSizeKByte=300
+You can change it to larger size that your logfile won’t be splitted into smaller parts.
+
+If you want to change that parameter, you will need to log in to RTU with Remote Desktop (user:cps, pass:tems00).  
+
+*******************************************
+*
+Подключение монитора
+Чтобы включить монитор
+при загруженном РТУ: CTRL+ALT+F1
+**********************************
+*
+*В Presentation поиск  Reestablishment
+
+*Для выявления реистаблишей, можно к стандартному фильтру (WCDMA) добавить след фильтр
+Layer 3 message - MsgIndex = Cell Update (UL-CCCH) 
+
+правда он не совсем верно найдет логи, процентов на 90.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+*******************************************************************************************************************************************************
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+         R T U  -- 5
+         
+Симптом: прибор не появляется в FM.
+Решение: закинуть на флешку файл InitialConfig.config
+Письмо от Grzegorza Вт 18.07.2017 16:37;
+
+Please find in attachment new config file which will use to upload EQ114 – fourth device in RTU5 (EQ119 was Ethernet port)
+Please change APN settings if different than “internet”:
+<ApnSetting>
+    <ApnName>internet</ApnName>
+  </ApnSetting>
+
+Please try to copy to USB stick and use new config file to connect RTU5 with TFM
+******************************************************************************
+
+Смена пароля в системе:
+Надо поменять настройки proxy в FleetManagere
+c:\Program Files (x86)\TEMS\FleetManager 2.8\WinFM\Application\WinFM.exe.Config
+Снизу есть сохранненый пароль
+
+
+******************
+Для телефонов Huawei надо прописать:
+AT^CPCM=0,0,1,0,0
+AT^ECHO=0
+Через putty, для отображения букв в консоли: ATE1
+Для каждого из телефонов
+
+
+***********************************************
+
+Дмитрий, добрый день
+
+Как обсудили по телефону, дополнительными командами можно принудительно выключить все устройства PCI Express кроме нужных:
+
+1.	Закрыть обе консоли CPS
+2.	Выполнить в cmd соответствующую команду для того, чтобы оставить работающим только необходимый модем:
+•	ctlreg 0xeed 0xf1  -  this enables the 1st modem (EQ111) – Huawei ME909u-521
+•	ctlreg 0xeed 0xf2  -  this enables the 2nd modem (EQ112) – Huawei ME909u-521
+•	ctlreg 0xeed 0xf4  -  this enables the 3rd modem (EQ113) – Sierra Wireless MC7455
+•	ctlreg 0xeed 0xf8  -  this enables the 4th modem (EQ114) – Sierra Wireless MC7710
+3.	Далее запустить софт для прошивки необходимой модели модема/выполнить команды описанные ранее
+4.	Дополнительно выкладываю софт правильной версии для стабилизации Sierra Wireless:
+•	MC7455 
+•	MC7710 
+
+См. ниже описание проблемы и более подробную документацию по устранению. Мой рабочий алгоритм исправления ситуации такой:
+
+1.	Подготовить флешку с 3 файлами: 
+ 
+
+2.	Залогиниться на RTU и дважды запустить файл P915u_M2M_Update_12.631.07.00.00.exe – она самостоятельно найдёт и последовательно «понизит» оба модема Huawei.
+3.	Посмотреть номера COM портов в Device Manager.
+4.	Открыть Putty на каждый из портов – Serial 9600 COMxx – нужный COM порт из PC устройства в диспетчере. Force Local Echo = on
+5.	Убедиться что версия FW 12.621.07.00.00 – для этого после соединения с модемом выполнить команду ATI
+6.	Дальше выполнить команду 
+AT^CPCM? 
+Должен быть следующий вывод 
+0,0,1,0,0
+Если нет – то делаем
+AT^CPCM=0,0,1,0,0 
+и смотрим чтобы был OK в ответ. После этого снова проверяем командой AT^CPCM? 
+
+7.	Дальше выполнить команду 
+AT^ECHO=0
+Должен быть ОК в ответ. Далее (обязательно именно в таком порядке) проверить что установилось в 0
+AT^ECHO?
+В ответ должны увидеть 0
+8.	Далее когда на обоих устройствах сделаны п.6 и п.7 дважды последовательно запускаем файл ME909u-521_Update_12.636.11.01.00.exe
+
+
+************************
+
+Чтобы включить монитор  в RTU-4:
+при загруженном РТУ: CTRL+ALT+F1
+
+*************************
+
+RDP для RTU5
+
+Подкоючать со своего ноутбука
+LAN port 1 ---порт с динамическим ip
+User: cps
+Pass: tems00
+Можно использовать putty в режиме telnet.
+
+
+LAN port 2 -- порт со статическим ip 192.168.0.1
+*******************
+Установка образа на RTU5:
+
+Проверить чтобы была установлена версия ТА 9.2
+1. Выключить RTU
+2. Открыть крышку передней панели, где стоят симки , встяавить симки
+3. Вставить флешку с образом 10.3.4 в USB рядом с VGA портом
+4. Подключить монитор
+5. Включить RTU
+6. Установка будет произведена в 2 этапа до 100%, потом выйдет сообщение на экран, RTU будет выключаться
+7. Когда погаснуть све ласпочки, успеть вынуть флешку
+8. RTU включится само и продолжит установку
+9. Подключить GPS антенну и закинуть *.lic файл в CONFIG
+10. Подождать пока настроится самостоятельно прибор
+11. Отправить настройки на прибор через СМС
+12. Положить на FTP в папку OUT файлы для downgrade to version 9.2
+\\srv-callg-002\c$\DmAn\Install\MTU\RTU5\Sw 9.2 downgrade\
+
+
+ 
+**********************
+1. РТУ-4 перестало выходить на связь (прибор был самопроизвольно включен в машине)
+  На диске Д в рабочей папке UMTS было по 2 одинаковыке папки. Командная строка не грузилась, которая выполняет работу прибора
+  Помогло: перезапись такой же папки из рабочего РТУ.
+  Копия данной папки лежит:
+  \\srv-callg-002\c$\DmAn\Documents\Backups\Папка UMTS RTU-4\
+**********************
+RTU-4
+Симптомы: не грузится RTU горят только Power и иногга хард диск.
+При подключении к монитору на диске D  отсутствует папка ProgramFiles, только папка с восстановленными файлами.
+Ремонт: 
+1. перезаписал образ с рабочей RTU
+2. Заменил *.lic файлы в папке config+ setting
+3. Подключил RTU+gps на улицу
+4. переотправил Software в папку OUT сервера, после того как РТУ вышло на связь
+   \\srv-callg-002\c$\DmAn\Install\MTU\!Obrazy\SW\RTU4_TA9.0.10910.2EC39\
+5. Изменил параметры симок если они слетели
+
+
+**************************************
+В OPC RTU-4 обозначен как Unconfigured. В меню сим-карт видим не все симкию. Настройка видимых не помогает.
+Переотправляем обновление софта на RTU, через папку OUT
+ \\srv-callg-002\c$\DmAn\Install\MTU\!Obrazy\SW\RTU4_TA9.0.10910.2EC39\
+ Затем настраиваем все симки, обязательно с указанием СМС центра с +375 (8029 не работает)
+ 
+ ***********************
+НЕ ВИДИТ МОДЕМА 5611
+1) отключить сканнер и перегрузить прибор.
+2) пусть поднимется без сканнера
+3) включить сканнер и ждать когда подцепит и перзагрузится
+************************
+641 НЕ ОПРЕДЕЛЯЕТ СИМКИ ЛАЙФА В СЛОТАХ 5 И 6
+1) выключить
+2) вынять симки из слотов 5-8
+3) загрузиться только с велкомовскими симками
+4) подогнуть симки по длине
+5) вставлять по одной и включать/ выключать прибор.
+6) ИЛИ вставить лайфовские симки в слота 1 и 2
+7) 7-ой слот исправен
+
+
+****************************
+Update to TA12
+
+
+You need to change setting for Region and Language -> Administrative -> Language for non-Unicode programs -> English (United Kingdom)
+ 
+
+After installation you can login to TEMS Fleet Manager with user: admin, password: @scom123.
+
+Additionally please install new TEMS Automatic 12.2 on your PC (it will update Script Designer and Local Probe Controller utilities) : Folder on FTP: /SW/TA 12.2/LPC and Workflow Designer/
+
+Ad 2) Install TA 12.2 image on RTU5 (before that, please copy and backup from RTU5 current TA 9.2 license file). 
+-	Please follow procedure from attachment : Load SW Image on RTU Flash Disk.pdf (Remove the SIM protection cover to disable the hardware watchdog && connect GPS)
+-	USB Boot.7z and image file are located on FTP: /SW/TA 12.2/RTU Production Image/RTU5 and RCU/
+
+Ad 3) Configure RTU5 connection to TFM backend:
+-	Connect RTU Ethernet LAN 1 to Internet (needs to reboot)
+-	Copy file from attachment: InitialConfig.config to USB stick and insert it to USB port in RTU5 when up and running
+
+Please let me know progress and if you have some issues?
+We could have a WebEx where I can help you or guide you quickly through new features.
+
+ ***************************************
+ 
+ 
+ Warning по POLQA.  (2 ПРИЧИНЫ)
+          = 1 =
+ Симптомы:
+ Один из голосовых устройст получает блоки,  постоянные фейлы по AQM.
+ Бывает,  что проходит звонок успешно.
+ 
+ Решение:
+ Два прибора настроены на одит МТ телефон.
+ Можно проверить в логах в Laye 3 какой телефон звонил:
+Сообщение DL Setup
+В конце сообщения 2 номера:
+    1 номер MO
+    2 номер МТ 
+    
+      = 2 =
+Фейлы по AQM Synhronization  в TI:
+    Необхдимо поставить  в звонке паузу как минимум 15 секунд, по аналогии с дефолтовым звонком, где стоит 20 сек
+          
+    
+*********************************************
+
+Подключение к бекэнду  velcom
+
+https://temsopt.velcom.by:13443/Fleet/Web/
+1. Подключаемя к RTU
+2. Копируем на диск D:\cps сертификаты, присланные ранее Белоусом:
+    i:\Andrikevich\GDR\MTU\TA12\root-2017.velcom.by.crt
+    i:\Andrikevich\GDR\MTU\TA12\ca-2017.velcom.by.crt
+3. Не закрывая окон от автоматика, устанавливаем сертификаты, сначала Root, потом Intermediate 
+4.root-2017.velcom.by.crt  устанавливаем manual в Trusted Root Certification Authorites
+5.ca-2017.velcom.by.crt  устанавливаем manual в Intermediate Certification Authorites
+6. Смотрим, чтобы прибор не перегрузился иначе переставляем сертификаты снова.
+7. Включаем USB флешку с config файлом.
+
+************************************ 
+
+не аплодит не какие логи и эвенты на backend velcom:
+1. выключить прибор
+2. достать все симки
+3. включить без симок.
+4. 5 минут поработает
+5. выключить прибок и воткнуть симки
+6. вкл прибор
+
+-------------------------------------------------
+ Закончилось место на диске D в RTU
+  -- прибор онлайн в Director
+  -- но не выполняет никаких воркордеров
+
+необходимо посичтить папку "D:\TEMP\Automatic\12.2"
+от *.wav файлов 
+(так было в CE68)
+
+------------------
+Не хотел приниматься скрипт на сканнер пока в названии скрипта присутсвовала фигурная скобка "{" или "}"
+--------------------------------------------------
+  Tool for checkin initial config
+  
+  D:/CPS/Bin/SystemConfigurationTool.exe
+  
+  1) Fleet Manager птички нигде не стоят,  статус должен быть running
+  2) InitialConfig для проверки подключаемой через USB флешку конфигурации
+
+*************************************************
+Uplaod WO был настроен сразу на 2 девайса (EQ111 и EQ113)
+1) подключится к прибору и проверить сразу что он мастер      :
+ 1.1 Запустить   D:/CPS/Bin/SystemConfigurationTool.exe
+ 1.2 Проверить на вкладке InitialConfig чтобы все было зеленым PASSED
+ 1.3 если последний не мастер, сказу проверить в ProbeController чтобы замок был ЗАКРЫТ, затем если мастер не появился
+     запустить по порядку с перерывом на рестарт с рабочего стола: 
+ 1.3.1 Configure and start CPS Agent
+ 1.3.2 Configure and start Position Broadcaster
+ 1.3.3 Configure as master
+2) Последние работавшие на приборе воркордеры лежат тут
+    D:\CPS\MyDocuments\TEMS Product Files\TEMS Automatic 12.2\ResourceFiles
+3) удаляем те воркордеры которые не надо, чтобы работали
+4) затем в ProbeCOntrollere раскрываем замок и REMOVE их с нужного прибора.   
+
+
+
+                                                              
+                                                              
+         

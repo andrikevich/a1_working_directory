@@ -1,0 +1,46 @@
+
+Сервер Grzegorz
+http://52.49.214.198/Fleet/Web/
+user: admin, pass: @scom123
+
+user/password
+RTU/##Rtu00
+pocket/##Pocket00
+voyager/##Voyager00
+
+**********************************************************
+Для регистрации в TEMS Director
+ ** TEMS Director Endpoint:
+    http://temsopt.velcom.by/Fleet/AgentPortal/AgentPortal.svc
+  ** USER:
+     voyager
+  ** PASSWORD:
+     ##Voyager00
+     
+ ***************************************************
+ Для корректной работы необходимо:
+ 1) *#0808# 
+        -- AP
+        -- MTP + ADB
+ 2) Tems Voyger--Meny--Voyger--General--Setting for--Autostart--"Enabled"
+ 
+ 
+ ****************************************************
+ Апдейт Voyager-Sense.
+ 
+ 1. Ugrade Linux на SD карте
+    1.1 Достать флешку из прибора и вставить в кард-ридер и воткнуть к ноуту напрямую в USB
+    1.2 Скачать Win32DiskImager
+        http://disk-imager.ru/download.html
+    1.3 скачать “Linux image for Micro SOM” и распаковать чтобы получить файл *sdcard
+    \\srv-callg-002\c$\DmAn\Install\TEMS Voyager Sense\How to upgrade TEMS Sense using Windows Installer.pdf
+    1.4 выбрать вставленный диск, если их несколько то ПЕРВЫЙ, он не будет читаться и просить отформатировань -- это норм
+    1.5 В Win32DiskImager выбрать *.* и найти наш образ .sdcard
+    1.6 Write 
+
+2. Upgrade TEMS Sense в телефоне.
+    2.1 Удалить все приложения связанные с TEMS
+    2.2 Подключить телефон к ПК проверив чтобы был MTP режим
+    2.3 Запустить pocketinstaller.3.2.1.016-TSV.win32.exe
+    2.4 Подтвердить установление всех приложений на телефоне
+************************************************************       

@@ -1,0 +1,296 @@
+Ошибка импорта файлов TDD_11.
+При импорте файлов можно получить ошибку: "object reference not set to an instance of an object"
+Надо во сремя выбора файлов для импорта выбрать тип файлов TEMS
+
+**************************************
+Сортировка по типу "TEST Type":
+The value of device attribute "Test_Type" is from the pre-defined script "Populate_Test_Type_Attribute_for_TA_Single_Call_Log_Files". . 
+
+Please enable this script during import in metric import configuration and then it will be populated. (See attachment)
+
+Note: This script only works for TA log file which have one call only per log file
+
+***************************
+Пропадают логи в датасете:
+1) Удалисть 2 файла в папке с проимпортированными папками в подпапке Datasets
+2) Перезагрузить сервер.
+
+Начнет скан всех файлов
+
+**************
+ -= LTE =- 
+
+Cell Identity (28bits) = 256 * {LTE Serving Cell Identities}Cell Identity (eNB Part) + {LTE Serving Cell Identities}Cell Identity (Cell Part)
+
+PCI (Physical CellID) находится в LTE Serving Cell Evaluation Parameters
+
+**************
+SCRIPT НАЗВАНИЯ ЛОГ ФАЙЛОВ
+
+
+ Чтобы добавить в таблицу в каждой строчке название лог файла (например для метрики по пингу время задержки):
+ 1. Вытягиваем эту метрику в первую закладку Alias
+ 2. В закладке Metrics создаенм нужную переменную, которая будет выводить нам имя лог-файла (Например: FileNAme_2).
+ 3. В теле программы пишем следующую строчку:
+FileNAme_2=LOG_FILE_NAME;
+
+LogName =LOG_FILE_NAME .Substring (0,LOG_FILE_NAME.IndexOf('_'))+".trp";
+***********************
+Для добавления своего Event в TDD:
+SetEvent(EVENT.AliasOfEvent);
+
+--------------------------------------
+Имя лог файла:
+Если требуется чтобы выводилось имя лог файла для для определенной метрики или эвента, 
+То добавляем такую метрику в 
+if (IsValueValid(Метрика){
+  LogName =LOG_FILE_NAME .Substring (0,LOG_FILE_NAME.IndexOf('_'))+".trp";
+  }
+  где LogName это String
+  
+  ---------------------------------------------
+  
+ Проблема с картами в репортах (Maps issue) 
+ Если по дефолту стали отображаться Bing карты.
+И в репортах карты не выводятся.
+Надо зайти в USERDATA_2\Projects\Название проекта\Сore
+и удалить там все xml файлы с настройками.
+***************************************************
+*
+Чтобы добавить UDR из Tems Presentation
+1. Открыть проект
+2. Gis/Coverage Map
+3. Unpack
+4. Находим в D:\Documents\Problems TAXI\BackUp from disk L\TD_Packed_UDR.zip
+5. Импортируем его
+
+---------------------------------------------------
+UDR можно нарисовать в самом TDD
+1. Рисуем UDR на карте.
+2. Нажимаем Enter
+3/ Нажимаем select UDR
+4/ Правой мышкой--Save as  и сохраняем в определнную группу
+5/ Слева в TDD Gis/Coverag находим нашу группу
+6. Правой мышкой Pack UDR for sharing
+7/ сохраняем UDR на диск
+8. Открываем нужный проект
+9. Сверху, где Dataset/Cells/... выбираем Gis/Coverage Map
+10/ Unpack UDR
+
+И UDR появятся в нашем проекте.
+
+-----------------------------------------------------
+Для фильтрации данных (например FTP DL) в компосайте по UDR:
+1. Создаем компосайты
+2. DataSet---Region--выбираем наш UDR, компосайт при этом пересчитается по UDR, но будет выводить не верные данные
+3. Выбираем гарантированный в логе эвент (Например PDP context activation)
+4. Отправляем данный эвент в Multi-Dimension Static View (count) (количество будет как раз таки отличаться по сравнению с TEMS Collector Event)
+5. Нажимаем на число-количество PDP Context Attempt, снизу отображаются все логи- члены компосайта входящие в состав этого количества PDP
+6. Над списком логов есть Или Create Composite Dataset или Generate Report
+-------------------------------------------------------
+
+PING
+
+Для вывода Ping Fail необходимо использовать метрику:
+TEMS Collector Events---Ping Result---Ping Timeout (они являются фейлами, т.к. Ping Attempt=Ping Fail)
+------------
+Распределение по IP адресам назначенным мобилам: PDP adress---PDP Context Index=1
+Первые два числа IP определяют обслуживающий GGSN
+GGSN-1-mnz:
+10.32.0.0/14 >>>>>>[10.32.0.1….10.35.255.254]
+10.36.0.0/14 >>>>>>[10.36.0.1…10.39.255.254]
+10.40.0.0/13 >>>>>>[10.40.0.1…10.47.255.254]
+
+GGSN-2-mni:
+10.48.0.0/13 >>>>>>[10.48.0.1…10.55.255.254]
+
+GGSN-gom:
+10.64.0.0/15 >>>>>>[10.64.0.1…10.65.255.254]
+-------------------------
+Использованный APN находится в метрике PDP Access Poin Name
+----------------
+
+
+РАЗБИВКА по серверам например для OOKLA, заполнение пустых ячеек с серверами
+с Table view выбираем Bad_ping
+при импорте в Excel
+1) в ячейку H2=F2
+2) H3==ЕСЛИ(ЕПУСТО(F3);H2;F3)
+
+**********************************
+*
+
+
+!!!Надо для компосайтов DL_All и UL_All запускать репорт RepSovMin
+
+
+
+Отчет делается только для режима HSPA и только для ГОРОДОВ, без учета трас.
+Для режима только HSPA (скрипт написанный Аксеновым)
+ необходим такой скрипт (PS_HSPA_Setup) и репорт (RepSovMin) :
+ D:\Documents\MTU\Для СОВМИНА\ForSovMin.zip
+ 
+ Данные должны быть разбиты по диапазонам: 
+ [Min, 0)	[0, 6)	[6, 10)	[10, Max]
+
+------------------------------------------------------------------
+Alias:
+RRC_request --- float --- [!RRC].[WCDMA].[WCDMA RRC Signaling].[UL-CCCH].[message].[rrcConnectionRequest].
+Estab_Cause --- float --- [!RRC].[WCDMA].[WCDMA RRC Signaling].[UL-CCCH].[message].[rrcConnectionRequest].[establishmentCause]
+PDP_activate --- float --- [!NAS].[WCDMA].[WCDMA NAS Signaling].[DL SM].[Activate PDP Context Accept]
+PDP_deactivate --- float --- [!NAS].[WCDMA].[WCDMA NAS Signaling].[DL SM].[Deactivate PDP Context Accept]
+Technology --- string --- [!ADV].[Benchmarking_Reports].[Technology_Detail]
+
+Static variables:
+vSetupTime --- timestamp ---0
+vStartTime --- timestamp ---0
+vTime --- timestamp ---0
+vTechnology --- string
+
+Metrics:
+Setup_Time_msec --- float ---PlotBand:PDP_Cont_4_step
+Setup_Time_sec ---float ---PlotBand:PDP_Cont_4_step
+
+Сам скрипт:
+*******************
+if((RRC_request == 1) &  (Estab_Cause !=0) & (Estab_Cause !=12)  & (Estab_Cause !=13) & (Estab_Cause !=5) & (Estab_Cause !=9))
+{
+	vStartTime = TIMESTAMP;
+}
+
+if((PDP_activate == 1) & (vStartTime!=0))
+{
+	vSetupTime = TIMESTAMP - vStartTime;
+	vTime = TIMESTAMP;
+}
+
+if(IsValueValid(Technology))
+{
+	vTechnology = Technology;
+}
+
+if(PDP_deactivate == 1) 
+{
+	if(vTechnology.Contains( "HSPA"))
+	{
+		TIMESTAMP = vTime;
+		Setup_Time_msec = (float)vSetupTime;
+		vStartTime = 0;
+		Setup_Time_sec=Setup_Time_msec/1000;
+
+	}
+}
+*************************
+ После выполнения данного скрипта в отчет не подут логи в которых:
+  1) отсуствует PDP Deactivation
+  2) No RRC (например по причине highPrioritySignaling) при установлении, только RRC для регистрации, после RAU
+  3) установление соединения происходит в GSM, следовательно исключаются какие либо RRC соединения
+---------------------------------------------------------------
+
+Первый раз для Q1_2014 данный отчет делался по показателю
+
+Advanced Metric& Event
+  TEMS Service KPIs
+    Metrics
+      PDP_Context_Activation_Time_sec
+      RRC_Request_to_PDP_Activated_Time_sec
+
+где PDP_Context_Activation_Time_sec включает в себя только время PDP активации,
+для сайта (запрос Совмина) необходим показатель:
+ RRC_Request_to_PDP_Activated_Time_sec, который отображает время от первого после Attach-ча RRC Request (для PDP) по PDP Context Activation complete.
+ Т.е. он состоит из времени установления RRC и времени активации PDP.
+ 
+ 
+ 
+ 
+ *****************************************************
+ *
+ *
+ Разбивка ДО и ПОСЛЕ определенной даты
+ 
+ Для того чтобы разбить до и поссле определенной даты :
+Заходим в Listining Filter
+Устанавливаем первый временной интревал
+Создаем по нему компосайт (как по 2г так и по 3Г)
+Меняем условия фильтра
+Создаем новый компосайт (after)
+Вытягиваем в окно Гистограммы чразу до, а потом после нужный показатель.
+
+******************************************
+
+Если в голосовом логе словили дроп, с ризоном в Инвестигейшене "Destination out of order" или в TDD "Abnormal network", то
+Надо посмотреть вторую ногу звонка, скорее всего дропнулась она и прислала релиз первой ноге.
+Т.о. Дроп недействительный.
+
+****************
+*Чтобы проверить качество работы антенны RTU:
+*Выводим в мультик данные по операторам и разделенные по девайсам MS1...MS3,  и смотрим по уровню приема на каждом девайсе, он должен быть примерно одинаковым.
+*
+*************************************************
+*
+ Events эвенты на карте
+ 
+ Для корректного отображения эвентов на карте необходимо установить:
+Decimial symbol: "." (точка)
+Digit grouping symbol: "," (запятая)
+List separator: ";"
+
+
+**********************************
+ПРОБЛЕМА с КАРТАМИ  
+*Если по дефолту стали отображаться Bing карты.
+И в репортах карты не выводятся.
+Надо зайти в USERDATA_2\Projects\Название проекта\Сore
+и удалить там все xml файлы с настройками.
+
+Для ЖСМ для разбивки по диапазонам:
+Включить окно гистограммы
+И выбрать в метриках GSM Frequency Band
+
+__________________________
+
+   НЕПРАВИЛЬНЫЙ конфиг для TDD
+   C:\Users\Public\Documents\TEMS\TDD
+   Надо удалить все файлы и запустить TDD, тогда сбросит в дефолтовую папку
+   
+   
+   
+   ----------------------------------------
+   TDE Enterprise не исполтирует файлы,  выскакивает ошибка в логах:
+   "System.IO.IOException: The file exists."
+     НАДО:
+1)     Почистить TEMP папку "ser\appData\Local\temp" 
+     During the remote session, we cleaned up the user\appData\Local\temp. There were a lot of .pdb and .tmp files there.
+Once cleaned up, the "File Exists" error did not show up anymore.
+The file buildup in this folder will not happen in the new version of TD.
+2) также проверить   в Microsoft SQL Servet Management Studio
+                        |_ 
+                           DataBase Engine
+                           |_
+                              SQL Server Agent должен быть зеленым, запущенным
+----------------------------------------------
+TDD при принудительном закрытии программы. после ее перезапуска выскацивает 
+ "The file exists."
+ НАДО 
+ почистить папку TEMP:
+ c:\Users\dmitry_an\AppData\Local\Temp\  
+ --------------------------------------                            
+
+
+Question: What is the difference between LTE Modulation PDSCH (CA) and LTE Modulation PDSCH?
+
+Answer: LTE Modulation PDSCH (CA) comes directly from Eps Pdsch Modulation mode report.
+
+LTE Modulation PDSCH output on the other hand is sourced from TEMS Discovery itself and is a decoded message from LTE L1 Downlink Info Message and should be compared with respective TEMS Investigation output under Mode Reports.                           
+
+-------------------------------------------
+Difference between Agg.Active EC/Io and Categorized EC/Io A1
+Product: TEMS Discovery
+Version: Any version
+Question: What is the Difference between Agg.Active EC/Io and Categorized EC/Io A1?
+
+Answer: Categorized values correspond to the actual cell measurements (‘Categorized Ec/Io:A1’ to ‘Categorized Ec/Io:A6’ correspond to up to 6 strongest active set Ec/Io cell measurements). Aggregated metrics are constructed/derived by adding up actual cell measurements in linear (dB or dBm) domain, in case of ‘Agg. Active’ metrics, active set measurements are summed up to give users a measure of active set gain (i.e. the effect of UE being connected to multiple serving cells at a time).
+
+In the example below, UE is connected to 3 serving cells and aggregated AS Ec/Io is -0.3 dB for the very first data sample, calculated by summing up individual active set Ec/Io values (-4.5 dB, -4.5 dB and -6.5 dB) in linear domain and converting it back to dB. 
+
+---------------------------------------

@@ -1,0 +1,45 @@
+Чтобы в форме Access добавить поля с календарем необходимо:
+1. Конструктор-- стрелку "Дополнительные параметры" (где вставляются, кнопки, поля, надписи и т.д.)
+2. Элементы ActiveX
+3. Microsoft Дата и время выбора элемента управления 6.0 (SP4) (Microsoft Date and Time Picker Control 6.0 (SP4))
+
+Инфу брал отсюда
+https://msdn.microsoft.com/ru-ru/library/office/gg251104(v=office.14).aspx
+
+
+**************
+   Если элемент Microsoft Date and Time Picker Control 6.0 (SP4) ОТСУТСТВУЕт в списке ActiveX (для офиса 2010)
+1) Надо скачать Microsoft Date & Time Picker Control 6.0 (SP4)  с сайта:
+http://danielcurran.com/instructions/how-to-install-microsoft-date-time-picker-control-60-sp4/
+
+или \\Optima_server\Working_soft\Data в Access\
+
+2) запустить *.bat файл 
+3) зарегистрировать элемент ActiveX^
+  3.1 Ложим сам файлик MSCOMCT2.cab в Windows\System32 (для х86) или C:\Windows\Syswow64 (64-bit).
+  3.2 Запускаем cmd as Administrator
+  3.3 переходим в папку 
+             cd c:\windows\system32
+             или cd c:\windows\Syswow64
+  3.4  и запускаем команду   regsvr32 mscomct2.ocx (для 64 тоже такая же)     
+  
+  
+  
+  -------------------------------------------------------
+  АНГЛИЙСКИЙ МАНУАЛ!!!  
+        
+    The date and time picker control is part of the Windows Common controls.  The file is MSCOMCT2.OCX, located in C:\Windows\System32 on 32-bit or C:\Windows\Syswow64 on 64-bit.  If you don't have this file, you can download it from the following location:
+
+http://activex.microsoft.com/controls/vb6/MSCOMCT2.cab
+
+Once you download the file, you'll need to extract the files and then register the OCX file.  You will likely need to open the command prompt as administrator in order to get the file to register successfully.  Here are the steps in case you need them.
+
+* Go to Start\All Programs\Accessories.
+* Right-click Command Prompt and then click on Run As Administrator.  
+* Change directory to the folder where you extracted the files.  For example, type the following and then press Enter:  cd c:\windows\system32
+* Type the following and then press Enter:  regsvr32 mscomct2.ocx
+* You should get a message saying this succeeded.
+
+I hope this helps!
+
+Source Link: http://social.technet.microsoft.com/Forums/office/en-US/defdd35a-f285-4b84-bf4c-d62011823b37/access-2010-datepicker-control-missing       

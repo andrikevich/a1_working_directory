@@ -1,0 +1,8 @@
+ROW_NUMBER () OVER (ORDER BY IDddd)
+
+IDD--это по чем упорядочивать.
+
+Вот пример
+select *,ROW_NUMBER () OVER (ORDER BY ID)
+from [OperTelegis].[dbo].[DropCallsClustered_V]
+where CGI_SC='MN014Z1' and Problem='BlockCall' and Type='No Alerting';

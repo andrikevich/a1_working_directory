@@ -1,0 +1,54 @@
+NTTEMS02\TEMSSQLSERVER      \\новый\\
+
+
+10.236.116.49\TEMSSQLSERVER     //стaрый\\
+NTTEMS01\TEMS,2245         
+
+
+
+nttems01\temssqlserver   \\Excel\\
+
+NTTEMS02_TEMSSQLSERVER Q2_2012 StatCube.odc
+NTTEMS02_TEMSSQLSERVER Q2_2012 StatCube
+
+
+\\STARSFAS02.austria.local\SRV_citrixtransfer$
+
+
+\\STARSFAS02.austria.local\SRV_citrixtransfer$\Tems
+\\STARSFAS02.austria.local\SRV_citrixtransfer$\Tems\BLR_Dmitry_an
+
+If it doesn’t work please also try “
+ipconfig /flushdns
+netsh winsock reset
+
+
+В ячейку О2: 
+=ЕСЛИ(И(L2=$W$2;M2=$W$2;N2=$W$2);0;1)
+
+
+В ячейку T2:
+=ЕСЛИ(И(Q2=$Z$2;R2=$Z$2;S2=$Z$2);0;1)
+-----------------------
+Требования к серверу для логов и эвентов:
+Нам необходим FTP сервер:
+•         со статичным IP, 
+•         с возможностью доступа из внешней (не корпоративной сети), 
+•         имеющим дисковое пространство 500Gb,
+•         без ограничения скорости чтения/записи с/на него,
+•         и должен быть настроен так, чтобы FTP сервер не «отдавал» файлы, которые в данный момент не закрытые,
+•         должны быть созданы 2 пользователя с паролями: первый с полным доступом, второй с доступом "read only"
+
+
+
+**************************************************************
+Настройка Call Generator
+ Сервер NTTEMS02\TEMSSQLSERVER
+ ------PESQ srv-callg-001
+ Login:CALL_BLR
+ PWD:callblr
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----POLQA srv-callg-002
+Login:CALL_BLR2
+PWD:callblr2
+*************************************************************
