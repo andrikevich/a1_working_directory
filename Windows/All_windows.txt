@@ -1,0 +1,168 @@
+1. Грузим LiveCD 
+2. Из папки Windows\System32\Config копируем все файлы с именем SAM (примерно 4 шт.)
+   SAM
+   SAM.LOG
+   SAM.LOG1
+   SAM.LOG2
+на другой диск пример D (в них хранятся пороли винды)
+3. Сбрасываем пароль для учетки Администратор
+4.Загружаем винду и ставим необходимый софт.
+5. Грузим LiveCD обратно и возращаем старые файлы SAM (из диска) на прежнее место заменяя не содержащие пароли.  
+
+
+
+----------------------------------------------
+Добавление ИСКЛЮЧЕНИЙ в Антивирус:
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Microsoft Antimalware\Exclusions\Paths
+---------------------------------------------
+
+ScreenSaver
+
+Found the issue:
+If you are running in a domain environment, create this setting accordingly in a GPO, otherwise configure the local GPO (gpedit.msc):
+Computer Configuration -> Возможен переход  к следующему пункту {Policies} -> Windows Settings -> Security Settings -> Local Policies -> Security Options -> Interactive logon: Machine inactivity limit
+If you wann prevent lockout set it to zero, keep in mind the security impact this change can have dependent on your environment.
+--------------------------------------------
+
+Uninstall обновлений WINDOWS
+wusa.exe /uninstall /kb:2872339
+
+---------------------------------------------
+ ЗАКРЕПИТЬ ПРИЛОЖЕНИЕ, РАСПОЛОЖЕННОЕ НА СЕТЕВОМ РЕСУРСе
+ 
+Чтобы закрепить приложение, расположенное на сетевом ресурсе, см. следующие инструкции:
+Откройте любую программу. Возьмем для примера Paint, хотя закрепить можно любую программу.
+Закрепите программу (правая кнопка мыши — "Закрепить на панели задач"):
+
+
+Закройте программу. Затем, удерживая нажатой клавишу SHIFT, щелкните правой кнопкой мыши значок приложения и выберите пункт Свойства:
+
+
+Измените конечную папку, указав путь к приложению
+
+Можно сменить значок.
+-------------------------------------------------------
+
+
+VPN AnyConnect
+1. На рабочем компе
+  1.1 Скачиваем с рабочего компа (экспортируем) актуальный сертификат VELCOM.TNK (выполнить\certmgr.msc ----> Personaд(Личные)--Certificates)
+  1.2 Скачиваем с рабочего компа: 
+      --для XP из папки c:\Documents and Settings\All Users\Application Data\Cisco\Cisco AnyConnect Secure Mobility Client\Profile\ все файлы (AnyConnectProfile.xsd и Office.xml)
+      -- для 7 c:\Program Data\Cisco\Cisco AnyConnect Secure Mobility Client\Profile\ все файлы
+2. На домашнем Выполнить--mmc
+   2.1 файл--добавить оснастку--сертификат--для ЛОКАЛЬНОГО компьютера
+   2.2 Личные--сертификаты -----> правой мышкой Импортировать и импортируем наш сертификат из пункта 1, указав установить его автоматически.    
+   2.3 Размещаем скачанные файлы в 1.2 в такие же папки в зависимости от винды.
+3.  В настройках Cisco Any connect оставить птички только на :
+    ** Minimize AnyConnect on VPN connect
+    ** Do not remember SmartCard PIN    
+ 
+ ----------------------------------------
+ Any connect на Android
+ 1. "Три точки" ---Diagnostics---Profile Management--Import Profile и импортируем AnyConnectProfileючыв из пункта 1.2 выше
+ 2. Certificate Management---Import---123.pfx (личный сертификат velcom-TNK)
+ 3. Connection ---Add new vpn connection---Server adress: office.velcom.by
+------------------------------------
+Установка  на Win7  cisco anyconnect
+1) отключаем службу Internet Conection Sharing (ICS)
+2) затем запускаем установку, иначе не даст запустить службу Cisco
+------------------------
+Бывает не cisco спросить пароль, начать лгиниться а потом выкидывает ошибку.
+Тоже необходимо выключить эту службу Internet Conection Sharing (ICS), которая является файерволом
+
+-------------------------------------------
+
+Lock экрана , аналог WIN +L'
+
+rundll32.exe user32.dll,LockWorkStation
+
+-----------------------------------------
+RADMIN
+
+Для того чтобы подключиться по радмину к своему ПК надо  запустить на моем pc-tech-161 
+из  папки NewTrialStop.v.2.3 файлик Install.
+
+он перезапустит радмин на pc-tech-161 и все можно подключаться.
+
+В поле лицензии получим There is no License :)
+
+Чтобы удалить предыдущую строку и вернуть велкомовскую лицензию, заходим правой мышкой по радмину в настройки
+далее кнопка дополнительно и удалить или установить NewTrialStop.v.2.3
+
+-----------------------------------------
+  Невидимый в УСТАНОВКа и удаление программ
+  
+  Для  того чтобы программа не была видна в установка удаление программ:
+1) HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+2) находим нужную папку
+3) Делаем резервный экспорт всей папки (на всякий случай)
+4) удаляем всю папку
+
+-------------------------------------
+
+Разлокировка учетногй записи
+
+rundll32.exe keymgr.dll KRShowKeyMgr
+
+----------------------------------------
+
+Временная учетная запись
+Проблемы с учеткой
+
+HOW TO FIX “YOU’VE BEEN SIGNED IN WITH A TEMPORARY PROFILE”
+
+
+
+
+2016-01-31 SUPERSYSADMIN One comment
+When you sign in to your Windows computer, it might occur that your normal desktop and settings do not appear, and you see a default profile. In this quick tip we will cover the symptoms, possible causes and solutions for this issue.
+
+
+Symptoms
+When you login, you typically see a default/clean profile and you might also see a popup in the bottom right notification area as in the following screenshot.
+
+youve-been-signed-in-with-a-temporary-profile_001
+
+When you look in the Application event log, you might see Error 1511 as in the following screenshot.
+
+youve-been-signed-in-with-a-temporary-profile_002
+
+When you go in the registry to HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList, you can see a list of all the profiles existing on the computer. The profile you are having issues with will probably be appended with .bak.
+
+youve-been-signed-in-with-a-temporary-profile_003
+
+Cause
+Most of the time, this issue occurs when Windows for some reason cannot access the profile directory (Usually this is C:\Users\username). This could be because the directory has been removed, or there is an issue with the permissions.
+
+Solution
+If the user directory still exists, you need to rename it. Next you need to go in the registry to HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList, and then highlight the entry for the user which is appended with .bak and delete it. You can either do this by logging on to the computer with another administrative account or use regedit from another computer and then use the feature “Connect Network Registry”.
+
+Once you have deleted the registry entry, you can logon again to the computer with your account and it should create a new profile for the user in C:\Users\username. If you previously renamed your profile, you can take ownership of this directory and then copy the data from the old profile to the new profile.
+
+
+******************************
+*Рестарт удаленного Пк через  CMD
+shutdown /f /r /m \\srv-tde-001
+
+********************************
+*
+
+
+Журнал АНТИВИРУСА, уменьшение количества дней слива журнала
+
+Открыть Power Shell as administrator
+
+Get-MpPreference
+Чтобы изменить его, введите в нужное количество дней хранения журнала:
+
+Set-MpPreference -ScanPurgeItemsAfterDelay Х
+Где Х это количество дней, после которого журнал будет удален, в моем случае - 1 день. 
+Теперь журнал защитника Windows будет хранится всего один день, после чего будет автоматически очищен.
+
+
+
+*************************************************
+Очистка WinSxS
+
+dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase

@@ -1,0 +1,26 @@
+1. На рабочем компе
+  1.1 Скачиваем с рабочего компа (экспортируем) актуальный сертификат VELCOM.TNK (выполнить\certmgr.msc ----> Personaд(Личные)--Certificates)
+  1.2 Скачиваем с рабочего компа: 
+      --для XP из папки c:\Documents and Settings\All Users\Application Data\Cisco\Cisco AnyConnect Secure Mobility Client\Profile\ все файлы (AnyConnectProfile.xsd и Office.xml)
+      -- для 7 c:\Program Data\Cisco\Cisco AnyConnect Secure Mobility Client\Profile\ все файлы
+2. На домашнем Выполнить--mmc
+   2.1 файл--добавить оснастку--сертификат--для ЛОКАЛЬНОГО компьютера
+   2.2 Личные--сертификаты -----> правой мышкой Импортировать и импортируем наш сертификат из пункта 1, указав установить его автоматически.    
+   2.3 Размещаем скачанные файлы в 1.2 в такие же папки в зависимости от винды.
+3.  В настройках Cisco Any connect оставить птички только на :
+    ** Minimize AnyConnect on VPN connect
+    ** Do not remember SmartCard PIN    
+ 
+ ----------------------------------------
+ Any connect на Android
+ 1. "Три точки" ---Diagnostics---Profile Management--Import Profile и импортируем AnyConnectProfileючыв из пункта 1.2 выше
+ 2. Certificate Management---Import---123.pfx (личный сертификат velcom-TNK)
+ 3. Connection ---Add new vpn connection---Server adress: office.velcom.by
+------------------------------------
+Установка  на Win7  cisco anyconnect
+1) отключаем службу Internet Conection Sharing (ICS)
+2) затем запускаем установку, иначе не даст запустить службу Cisco
+------------------------
+Бывает не cisco спросить пароль, начать лгиниться а потом выкидывает ошибку.
+Тоже необходимо выключить эту службу Internet Conection Sharing (ICS), которая является файерволом
+

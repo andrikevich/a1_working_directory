@@ -1,0 +1,7 @@
+Для расчета процентилей можно использовать среднюю скорость для каждого лога ,
+вывести их в дискавери в MultiDemension как Average: Advanced Metrics and Events-->Tems Service KPI-->FTP-->FTP_Download_Mean_Data_rate_kbps_Method_A
+
+Для создания отчетовв дисковери выбираем предыдущую метрику в репорт билдере и : 
+Report Type: Single value
+Descriptives: %-ile
+Options--> Procentile ставим сразу 10, в след ячейке 20 и т.д.

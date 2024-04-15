@@ -1,0 +1,16 @@
+Из Cell file для TEMS
+
+GSM
+SYSTEM	CELL	SITE	LAT	LON	HEIGHT	TILT	BEAM	DIR	CH	CID	LAC	RAC	BSIC
+
+
+UMTS
+SYSTEM	CELL	SITE	LAT	LON	HEIGHT	TILT	BEAM	DIR	CH	LAC	RAC	SCR	CID
+
+
+LTE
+SYSTEM	CELL	SITE	LAT	LON	HEIGHT	TILT	BEAM	DIR	CH	CID	PCI	TAC
+
+Next, you must save the document in .CSV format.
+
+Next you must change manually the format to .nbf

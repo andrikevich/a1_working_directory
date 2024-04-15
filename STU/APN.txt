@@ -1,0 +1,23 @@
+Velcom
+AT+CGDCONT=1,"IP","mdc.velcom.by"
+login: mdc
+pswd: mdc
+
+------------------------------------
+Life
+AT+CGDCONT=1,"IP","internet.life.com.by"
+login: internet
+pswd: internet
+
+------------------------------------------
+MTS
+AT+CGDCONT=1,"IP","mts"
+login: mts
+pswd: mts
+
+
+!!!!!!!!!! LTE   MTS
+AT+CGDCONT=1,"IP","MTS" /////Œ¡ﬂ«¿“≈À‹ÕŒ «¿√À¿¬Õ€≈ ·ÛÍ‚˚
+login: mts
+pswd: mts
+---------------------

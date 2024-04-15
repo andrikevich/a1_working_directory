@@ -1,0 +1,63 @@
+Installation of Win7/STU-Image to new or existing hardware
+- IZ,05.09.2015
+
+IMPORTANT: This guid only summarizes the important steps.
+Always generate a specific task list for every combination of hardware, 
+software and requirements.
+
+IMPORTANT: If a new image is generated, always ensure that the computer 
+name is configured to end with XXXX. This ensures that you will be 
+reminded that the machine name is not valid for registration.
+
+
+1. BIOS Upgrade and Settings
+  [ ] Check BIOS version
+  [ ] upgrade BIOS if required (might require to boot the pre-install windows)
+  [ ] Apply BIOS settings (depending
+      - AHCI
+      - Power on after power loss
+      - Boot menu type or boot order
+
+2. Restore Image
+  [ ] Boot Acronis from USB stick
+  [ ] Restore image
+      
+3. Server setup and registration
+  [ ] If a new agent ID is used, inform operation of this new agent and
+      the configuration that shall be used
+  [ ] Central op only: add agent ID to synchronization config file
+  [ ] Central op only: create upload directory on FTP upload server
+  
+4. Installation and finalization of Software
+  [ ] Boot Windows 7
+  [ ] Ensure windows is genuine (Control Panel > System)
+  [ ] Change computer name and restart
+  [ ] Install image bugfixes if available
+  [ ] Apply custom windows configuration if required
+  [ ] Restart additional software if required
+  [ ] Install Modem drivers (just drivers, not dashboard and auto-update)
+  [ ] Create RAS entry MBB if required
+  [ ] Install TSS
+      - use correct TSS-Custom-XXX directory
+  [ ] Configuration of TSS
+      - machine.cfg: check/configure time shift
+      - machine.cfg: check/configure USB cutter
+      - machine.cfg: check/configure APNs and custom settings
+  [ ] Ensure time is correct or set/synchronize it
+  [ ] Register TSS
+      - enter machine name including agent ID as user name
+      - if no unlock key is available, inform operation
+  [ ] Synchronize TSS
+  
+5. Test
+  [ ] shut down system
+  [ ] disconnect AC power
+  [ ] connect AC power
+  [ ] check if computer powers on
+  [ ] check if windows and TSS is automatically started
+  [ ] check if correct job is assigned and scheduled
+  [ ] check if job can be executed (modem OK?)
+  [ ] check if data is delivered to central system
+  [ ] check if ALL required data is available for ALL required scenarios
+
+     

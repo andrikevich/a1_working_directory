@@ -1,0 +1,11 @@
+java test.jar “Error: Could not find or load main class test.jar”
+java -jar test.jar “no main manifest attribute, in test.jar”
+
+Runs just fine from the IDE. All that confusion just to build a non-functional “executable” jar file…
+
+Reply
+Josh says:
+August 16, 2013 at 10:56 am
+To all those having problems, I finally figured out why IntelliJ can fail at making a working executable jar:
+
+In my case, it was because IntelliJ was extracting all my dependencies into the output jar (good), which ended up overwritting the /META-INF/MANIFEST.MF file with something from one of my dependencies (bad). I had to open up the jar and copy in the real MANIFEST.MF from the location indicated in the “Manifest File” property that is automatically set in that artifacts page under Project Structure”.

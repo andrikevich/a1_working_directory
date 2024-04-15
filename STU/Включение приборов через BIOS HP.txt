@@ -1,0 +1,8 @@
+STU HP
+Входим в BIOS постоянно нажимая Esc
+BIOS--Advanced--BIOS Power ON
+   Sunday --enable
+   Monday --enable
+   .........
+   Saturday--enable
+Time 08-12

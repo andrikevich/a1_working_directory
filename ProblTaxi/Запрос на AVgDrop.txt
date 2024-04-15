@@ -1,0 +1,4 @@
+SELECT m1.CGI_SC, m1.status, Count(*) AS Выражение1, Avg(m1.lat) AS [Avg-lat], Avg(m1.lon) AS [Avg-lon]
+FROM main AS m1 INNER JOIN Main AS m2 ON m1.Код=m2.Код
+WHERE (((m1.problem)='DropCall') And ((m1.CGI_SC)<>'Unknown') And ((m2.problem)='DropCall') And ((m2.CGI_SC)<>'Unknown') And (((m1.Lat-m2.Lat)*(m1.Lat-m2.Lat)+(m1.Lon-m2.Lon)*(m1.Lon-m2.Lon))<=0.000000582169)) and (m1.CGI_SC=m2.CGI_SC)
+GROUP BY m1.CGI_SC, m1.status;

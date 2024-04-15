@@ -1,0 +1,32 @@
+
+Found the issue:
+If you are running in a domain environment, create this setting accordingly in a GPO, otherwise configure the local GPO (gpedit.msc):
+Computer Configuration -> Âîçìîæåí ïåðåõîä  ê ñëåäóþùåìó ïóíêòó {Policies} -> Windows Settings -> Security Settings -> Local Policies -> Security Options -> Interactive logon: Machine inactivity limit
+If you wann prevent lockout set it to zero, keep in mind the security impact this change can have dependent on your environment.
+
+
+---------------------------
+https://redmondmag.com/articles/2016/04/25/disable-windows-server-auto-lock-feature.aspx
+
+ Group Policy Object Editor and then navigate to Computer Configuration \ Policies \ Administrative Templates \ System \ Power Management \ Video and Display Settings, as shown in Figure 1.
+  The setting that controls the lock is called Turn Off the Display (Plugged in).  To disable the lock, enable this setting and change the value of Turn Off the Display (Seconds) to 0, as shown in Figure 2.
+---------------------------
+reg add "HKCU\Software\Policies\Microsoft\Windows\Control Panel\Desktop" /v ScreenSaverIsSecure /t REG_SZ /d 0 /f
+
+__________________________________________
+The steps above only work in Windows 8 / 8.1 / 10 Pro or Professional or Enterprise edition, as Home edition does not come with a Group Policy Editor. But you can make the same change via registry (which works on all edition of Windows).
+
+Run Registry Editor (RegEdit) by searching for it.
+Go to the following Registry key:
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Personalization
+
+
+ 
+If “Personalization” registry key is not found, create it by right clicking on Windows, and select New -> Key.
+
+Create a new a DWORD (32-bit) value named NoLockScreen.
+Set its data to 1.
+Hide Lock Screen
+
+Exit from Registry Editor.
+You may need to restart the computer for the change to take effect.

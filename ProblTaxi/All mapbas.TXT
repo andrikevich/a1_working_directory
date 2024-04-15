@@ -1,0 +1,23 @@
+Register Table "\\Optima_server\STATISTICS_ARCHIVE\TA_Statistics\Problems\Maps\Cities\Linked.mdb"  Type ACCESS Table "Main_Exp" Into "\\Optima_server\STATISTICS_ARCHIVE\TA_Statistics\Problems\Maps\Cities\Main_Exp.TAB"
+Open Table "\\Optima_server\STATISTICS_ARCHIVE\TA_Statistics\Problems\Maps\Cities\Main_Exp.TAB" Interactive
+Browse * From Main_Exp
+Create Map For Main_Exp CoordSys Earth Projection 1, 104
+Open Table "\\Optima_server\STATISTICS_ARCHIVE\TA_Statistics\Problems\Maps\Cities\!!!BAse\All_cities.TAB" Interactive
+Map From All_cities
+Select * from Main_Exp, All_cities where Main_Exp.Obj Within All_cities.Obj into Main
+Browse * From Main
+Commit Table Main As "\\Optima_server\STATISTICS_ARCHIVE\TA_Statistics\Problems\Maps\Cities\!!!BAse\Main.TAB" TYPE NATIVE Charset "WindowsCyrillic" Interactive
+Close All Interactive
+Open Table "\\Optima_server\STATISTICS_ARCHIVE\TA_Statistics\Problems\Maps\Cities\!!!BAse\Main.TAB" Interactive
+Map From Main
+Browse * From Main
+Select CGI_SC, description from Main where Status = "Open" and Problem = "DropCall" into Desc_op
+Browse * From Desc_op
+Commit Table Desc_op As "\\Optima_server\STATISTICS_ARCHIVE\TA_Statistics\Problems\Maps\Cities\!!!BAse\Desc_op.TAB" TYPE NATIVE Charset "WindowsCyrillic" Interactive
+Close Table Desc_op Interactive
+Open Table "\\Optima_server\STATISTICS_ARCHIVE\TA_Statistics\Problems\Maps\Cities\!!!BAse\Desc_op.TAB" Interactive
+Add Map Auto Layer Desc_op
+Select Main.Код, Main.device, Main.data, Main.City, Main.Problem, Main.type, Main.RAT, Main.RxLev, Main.RxQual, Main.RSCP, Main.Ec_No, Main.Lat, Main.Lon, Main.CGI_SC, Main.Status, Main.Drop_location, Main.Data_of_rep_del, Main.Author, Main.LogLink from Main, Desc_op where Main.Status in ( "To be checked" , "Repaired" ) and Main.CGI_SC = Desc_op.CGI_SC and Main.description = Desc_op.description and Main.Problem = "DropCall" into main_m
+Browse * From main_m
+update main_m set status="Re-open"
+Commit Table Main Interactive

@@ -1,0 +1,144 @@
+Windows 7 image generation report
+(STU generic)
+
+Image
+  [x] fresh install of Windows 7 Pro SP1 x32 en from HP DVD
+      - user Test, Machine Name STU-XXX-HPMXXXX
+  [x] Windows is activated
+  [x] remove existing software
+      - none installed
+Primary config
+  [x] disable swap file
+  [x] disable system protection
+  [x] disable indexing
+  [x] set volume names (Win7e-C, Win7e-D)
+  [-] create new user Test (already done in setup)
+  [x] ensure C: is bootable without service partition (bcdboot)
+  [-] add missing Win7e packages and drivers
+  [-] remove excessive Win7e packages
+Install drivers
+  [x] install mainboard drivers
+      x Chipset
+      x LAN driver (inf/drv only)
+      x USB 3.0 
+      x VGA
+      - WLAN    
+      - Bluetooth
+      x PCI Simple Comm (8086/1E3A) ... Intel MEI
+      - Audio ... use default
+  [-] disable WLAN and bluetooth
+  [x] disable VGA keyboard shortcuts
+Base configuration
+  [x] classic style, small icons
+  [x] install Win7 mods (STU-base)
+      - change sounds
+      - classic logon screen
+      - classic shortcut icons
+      - command prompt modifications (quick edit...)
+      - disable shell bags for all folders
+      - disable auto reply
+      - disable autorun
+      - disable IPv6
+      - explorer modifications (show hidden files, disable animations...)
+      - keyboard layout de + en
+      - linked connections for admin
+      - disable CD burning and auto eject
+      - disable file/folder connection
+      - set registered user
+      - remove buggy WMI BVTFilter error 10
+      - system configuration (disable effects, small icons, no font smoothing...)
+      - taskbar/startmenu modifications (no grouping, no recent docs...)
+      - task manager modifications
+      - task switch modifications
+      - disable heuristics
+      - disable startup checks
+      - disable excessive scheduled tasks
+      - disable excessive services
+  [x] install style, assign user picture (c:\windows\web\usericons)
+  [x] clean files
+  [-] disable prefetch (in case of SSD)
+  [.] start internet explorer (enable menu, empty start screen, wizard)
+  [x] configure media player
+  [x] unpin internet explorer and media player
+  [.] pin explorer, cmd and task manager to task bar
+  --- enable hibernation (powercfg)
+  [x] power options (don't hibernate + suspend on pwr button, don't sleep on AC)
+  [x] disable messages in action center
+  [x] phones and modems: enter area code
+STU configuration
+  [x] install Win7 mods (STU-ext)
+      - enable command prompt here
+      - IE8 compatibility and max connections 
+      - change remote desktop to 9017 
+      - firewall rules for ICMP
+      - disable remote assistance
+      - enable remote desktop
+      - STU firewall rules
+  [x] machine name STU-XXX-HPMXXXX, workgroup STU  (TYPE = DSK, 77N, EMB)
+  [x] Control Panel > System > Advanced system settings ... automatically restart
+  [x] change password
+  [x] apply autoadminlogon
+  [x] install TSS autorun
+  [-] disable enumeration for COM1 (no enum key)
+  [x] disable serial mouse
+  [x] create task scheduler entry for TSS autorun
+  [x] connect LAN, change to public (all networks)
+  [x] rename adapter names (LAN, WLAN), disable IPv6 and MS networking, set metric 300
+  [x] disable sound in mixer
+  [x] install telnet, hyperterminal
+  [x] install winhlp (KB917607)
+  [x] install TCP update (KB2905412) ... install in image finalization if required
+  [x] install update cleanup (KB2852386)
+  [x] install helper software
+      - command prompt and explorer icon
+      - task manager icon
+      - control panel icons (modems, network, ctrlpnl, compmgmt, services, taskschd, eventvwr)
+      - VC2008/VC9 redistributable
+      - batch files (su, ed)
+      - 7-zip + shell extension
+      - explorer++
+      - freecommander
+      - pathcopycopy + shell extension
+      - agent ransack + shell extension
+      - windirstat
+      - notepad++ + addons + config (keyboard, file association, disable updates)
+      - winmerge
+      - irfanview
+      - firefox + config
+      - thunderbird + email profile
+      - filezilla + STU ftp profiles (disable updates)
+      - putty
+      - wireshark (current)
+      - wireshark 1.6
+      - MS network monitor
+      - TightVNC (service, changed port)
+      - OpenSSH (service, changed port)
+      - RDP (changed port)
+      - Baretail
+      - Snaketail
+      - SysInternals
+      - DIPS
+      - UsbDeView
+      - UsbView
+      - CPU-z
+      - HwInfo
+  [x] manage tray icons (VNC, task manager, remove hardware, install driver)
+  [x] run all tools, check window placement, check TSS scheduler item
+  [x] check space on drive C: (hiberfil, pagefile)
+  [x] clean/check start menu
+  [x] run autoruns
+  [x] remove mounted network drives
+  [x] clean event log, reboot and check
+Checks
+  [x] check boot + auto admin logon
+  [x] check VNC:9014, SSH:9015, RDP:9017 (important: user name is case sensitive)
+Update  
+  [-] run windows update (disable recommended updates)
+  [x] install windows updates
+  [x] disable windows update
+  [x] clean image (batch file, manually drop -IME and -MSI)
+  [x] run clean utility (windows update cleanup)
+  [x] run autoruns and windirstat
+  [x] clean event log
+Image
+  [x] C:\ 7932.030976 bytes used, 3406.254592 bytes in image (A2009,hi,without 100MB)

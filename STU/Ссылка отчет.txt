@@ -1,0 +1,4 @@
+Для выведения отчета использовать ссылку ниже, и менять параметры в дате и номере сценария. затем экспорт в csv 
+
+
+http://ntsmon03.ms.mobilkom.at/dash/graph.html?instance=stu-vel&scenarioid=5211&agentid=2408,%202411,%202415,%202403,%202407,%202412&endtime=2013-06-20T23:59:59&filterstarttime=2013-06-20T00:00:00&groupbyagent=1

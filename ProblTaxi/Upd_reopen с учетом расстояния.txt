@@ -1,0 +1,25 @@
+New version с учетом 50 метров между событиями
+
+UPDATE 
+(SELECT m1.status 
+FROM main AS m1 INNER JOIN Main AS m2 ON m1.CGI_SC=m2.CGI_SC 
+WHERE (((m1.problem)='DropCall') And ((m1.status) In ('To be cheked','repaired')) And ((m2.problem)='DropCall') And ((m2.status)='Open') And (((m1.Lat-m2.Lat)*(m1.Lat-m2.Lat)+(m1.Lon-m2.Lon)*(m1.Lon-m2.Lon))<=0.000000582169)))  AS mmm SET Status = 'Reopen' &'--'& DATE();
+
+-----------------------------------
+Old version без учета расстояния
+
+UPDATE m1 SET status = "Reopen"
+WHERE ((problem='DropCall') and (status in('To be cheked', 'repaired') and ((m1.CGI_SC) In (select CGI_SC
+from m1 
+where ((CGI_SC<>'Unknown') and (problem='DropCall') and (status='Open')
+))))
+and m1.DESCRIPTIOn in (select DESCRIPTIOn
+from m1 
+where ((problem='DropCall') and (status='Open'))));
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+Fields {CGI_SC, Description}
+Tables {Main}
+Where {Status="Open" and Problem="DropCall"}
+Group {}
+Order {}
+Into {Desc_op}
+Browse

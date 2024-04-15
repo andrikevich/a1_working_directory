@@ -1,0 +1,7 @@
+Fields {Main.Код, Main.Device, Main.Data, Main.City, Main.Problem, Main.Type, Main.RAT, Main.RxLev, Main.RxQual, Main.RSCP, Main.Ec_No, Main.Lat, Main.Lon, Main.CGI_SC, Main.Status, Main.Drop_location, Main.Data_of_rep_del, Main.Author, Main.LogLink}
+Tables {Main, Desc_op}
+Where {Main.Status in ("To be checked", "Repaired") and Main.CGI_SC=Desc_op.CGI_SC and Main.Description=Desc_op.Description and Main.Problem="DropCall"}
+Group {}
+Order {}
+Into {main_m}
+Browse

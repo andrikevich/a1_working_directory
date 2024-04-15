@@ -1,0 +1,374 @@
+Velcom
+AT+CGDCONT=1,"IP","mdc.velcom.by"
+login: mdc
+pswd: mdc
+
+------------------------------------
+Life
+AT+CGDCONT=1,"IP","internet.life.com.by"
+login: internet
+pswd: internet
+
+------------------------------------------
+MTS
+AT+CGDCONT=1,"IP","mts"
+login: mts
+pswd: mts
+
+
+!!!!!!!!!! LTE   MTS
+AT+CGDCONT=1,"IP","MTS" /////ОБЯЗАТЕЛЬНО ЗАГЛАВНЫЕ буквы
+login: mts
+pswd: mts
+---------------------
+Образ для 2Gb вместо 4Gb 
+
+1. Устанавливаем на CF-2Gb образ с диска предоставленный Инго Зетлом
+2. Заменяем все файлы в папке D---TSS---BIN (на файлы с рабочей STU есть тут:
+    d:\Install\STU\New Jobs and system files\bin\)
+3.  Чистим диск С
+    3.1 Удаляем файлы в папке Windows---Help
+    3.2 Удаляем Windows Media Pleyer
+    3.3 Запускаем стандартную очистку диска с
+4. ПЕРЕСОЗДАЕМ новое MBB соединение (НЕ ПЕРЕЙМЕННОВЫВАЕМ старое так не работает)
+5. Переназываем машину согласно номера
+6. Устанавливаем D-Link софт и дрова, ЛУЧШЕ устанавливать на ДИСК D
+7. Регистрируем машину, если регистрации не проходит, кричим Кристиану с объяснением причины: "problem with disc id."
+8.  Запускаем Job  Sync_no_RAS
+------------------------------
+
+CF Kingston 16Gb
+При замене флешки на Kingston, резко падает до 1 Mbytes/sec скорость записи/чтения при загруженной винде XP (при загрузке под PE флешкой все скорость порядка 45 Mbyte/sec)
+1. В BIOS включаем UDMA 133 обязательно по умолчанию стоит 33
+2. Запускаем STU
+3. C:\Program Files\Advantech\EWF Manager
+        Drive letter: C
+        Нажать Enable
+        Restart STU
+        
+        
+********
+Чтобы ПЕРЕИМЕНОВАТЬ имя компьютера:
+1. Отключить фунцию (Disable) описанную выше
+2. Переименовать ПК
+3. Enable в программе C:\Program Files\Advantech\EWF Manager
+
+---------------------------------
+ Для установки модема DLink:
+
+1. устанавливаем софт с модема
+2. Не хватающих драйверов берем здесь: d:\Install\D-Link 157\
+3. В программе от модема включиьт ее автозапуск при запуске виндовс.
+
+-------------------------------------
+STU-Finalization-Win7-generic
+
+Installation of Win7/STU-Image to new or existing hardware
+- IZ,05.09.2015
+
+IMPORTANT: This guid only summarizes the important steps.
+Always generate a specific task list for every combination of hardware, 
+software and requirements.
+
+IMPORTANT: If a new image is generated, always ensure that the computer 
+name is configured to end with XXXX. This ensures that you will be 
+reminded that the machine name is not valid for registration.
+
+
+1. BIOS Upgrade and Settings
+  [ ] Check BIOS version
+  [ ] upgrade BIOS if required (might require to boot the pre-install windows)
+  [ ] Apply BIOS settings (depending
+      - AHCI
+      - Power on after power loss
+      - Boot menu type or boot order
+
+2. Restore Image
+  [ ] Boot Acronis from USB stick
+  [ ] Restore image
+      
+3. Server setup and registration
+  [ ] If a new agent ID is used, inform operation of this new agent and
+      the configuration that shall be used
+  [ ] Central op only: add agent ID to synchronization config file
+  [ ] Central op only: create upload directory on FTP upload server
+  
+4. Installation and finalization of Software
+  [ ] Boot Windows 7
+  [ ] Ensure windows is genuine (Control Panel > System)
+  [ ] Change computer name and restart
+  [ ] Install image bugfixes if available
+  [ ] Apply custom windows configuration if required
+  [ ] Restart additional software if required
+  [ ] Install Modem drivers (just drivers, not dashboard and auto-update)
+  [ ] Create RAS entry MBB if required
+  [ ] Install TSS
+      - use correct TSS-Custom-XXX directory
+  [ ] Configuration of TSS
+      - machine.cfg: check/configure time shift
+      - machine.cfg: check/configure USB cutter
+      - machine.cfg: check/configure APNs and custom settings
+  [ ] Ensure time is correct or set/synchronize it
+  [ ] Register TSS
+      - enter machine name including agent ID as user name
+      - if no unlock key is available, inform operation
+  [ ] Synchronize TSS
+  
+5. Test
+  [ ] shut down system
+  [ ] disconnect AC power
+  [ ] connect AC power
+  [ ] check if computer powers on
+  [ ] check if windows and TSS is automatically started
+  [ ] check if correct job is assigned and scheduled
+  [ ] check if job can be executed (modem OK?)
+  [ ] check if data is delivered to central system
+  [ ] check if ALL required data is available for ALL required scenarios
+
+ --------------------------------------------------------
+  Win7pro-x32-02-HP260G1-STU-Updt-A2009-hi-CD-2015-12-01
+  
+  Windows 7 image generation report
+(STU generic)
+
+Image
+  [x] fresh install of Windows 7 Pro SP1 x32 en from HP DVD
+      - user Test, Machine Name STU-XXX-HPMXXXX
+  [x] Windows is activated
+  [x] remove existing software
+      - none installed
+Primary config
+  [x] disable swap file
+  [x] disable system protection
+  [x] disable indexing
+  [x] set volume names (Win7e-C, Win7e-D)
+  [-] create new user Test (already done in setup)
+  [x] ensure C: is bootable without service partition (bcdboot)
+  [-] add missing Win7e packages and drivers
+  [-] remove excessive Win7e packages
+Install drivers
+  [x] install mainboard drivers
+      x Chipset
+      x LAN driver (inf/drv only)
+      x USB 3.0 
+      x VGA
+      - WLAN    
+      - Bluetooth
+      x PCI Simple Comm (8086/1E3A) ... Intel MEI
+      - Audio ... use default
+  [-] disable WLAN and bluetooth
+  [x] disable VGA keyboard shortcuts
+Base configuration
+  [x] classic style, small icons
+  [x] install Win7 mods (STU-base)
+      - change sounds
+      - classic logon screen
+      - classic shortcut icons
+      - command prompt modifications (quick edit...)
+      - disable shell bags for all folders
+      - disable auto reply
+      - disable autorun
+      - disable IPv6
+      - explorer modifications (show hidden files, disable animations...)
+      - keyboard layout de + en
+      - linked connections for admin
+      - disable CD burning and auto eject
+      - disable file/folder connection
+      - set registered user
+      - remove buggy WMI BVTFilter error 10
+      - system configuration (disable effects, small icons, no font smoothing...)
+      - taskbar/startmenu modifications (no grouping, no recent docs...)
+      - task manager modifications
+      - task switch modifications
+      - disable heuristics
+      - disable startup checks
+      - disable excessive scheduled tasks
+      - disable excessive services
+  [x] install style, assign user picture (c:\windows\web\usericons)
+  [x] clean files
+  [-] disable prefetch (in case of SSD)
+  [.] start internet explorer (enable menu, empty start screen, wizard)
+  [x] configure media player
+  [x] unpin internet explorer and media player
+  [.] pin explorer, cmd and task manager to task bar
+  --- enable hibernation (powercfg)
+  [x] power options (don't hibernate + suspend on pwr button, don't sleep on AC)
+  [x] disable messages in action center
+  [x] phones and modems: enter area code
+STU configuration
+  [x] install Win7 mods (STU-ext)
+      - enable command prompt here
+      - IE8 compatibility and max connections 
+      - change remote desktop to 9017 
+      - firewall rules for ICMP
+      - disable remote assistance
+      - enable remote desktop
+      - STU firewall rules
+  [x] machine name STU-XXX-HPMXXXX, workgroup STU  (TYPE = DSK, 77N, EMB)
+  [x] Control Panel > System > Advanced system settings ... automatically restart
+  [x] change password
+  [x] apply autoadminlogon
+  [x] install TSS autorun
+  [-] disable enumeration for COM1 (no enum key)
+  [x] disable serial mouse
+  [x] create task scheduler entry for TSS autorun
+  [x] connect LAN, change to public (all networks)
+  [x] rename adapter names (LAN, WLAN), disable IPv6 and MS networking, set metric 300
+  [x] disable sound in mixer
+  [x] install telnet, hyperterminal
+  [x] install winhlp (KB917607)
+  [x] install TCP update (KB2905412) ... install in image finalization if required
+  [x] install update cleanup (KB2852386)
+  [x] install helper software
+      - command prompt and explorer icon
+      - task manager icon
+      - control panel icons (modems, network, ctrlpnl, compmgmt, services, taskschd, eventvwr)
+      - VC2008/VC9 redistributable
+      - batch files (su, ed)
+      - 7-zip + shell extension
+      - explorer++
+      - freecommander
+      - pathcopycopy + shell extension
+      - agent ransack + shell extension
+      - windirstat
+      - notepad++ + addons + config (keyboard, file association, disable updates)
+      - winmerge
+      - irfanview
+      - firefox + config
+      - thunderbird + email profile
+      - filezilla + STU ftp profiles (disable updates)
+      - putty
+      - wireshark (current)
+      - wireshark 1.6
+      - MS network monitor
+      - TightVNC (service, changed port)
+      - OpenSSH (service, changed port)
+      - RDP (changed port)
+      - Baretail
+      - Snaketail
+      - SysInternals
+      - DIPS
+      - UsbDeView
+      - UsbView
+      - CPU-z
+      - HwInfo
+  [x] manage tray icons (VNC, task manager, remove hardware, install driver)
+  [x] run all tools, check window placement, check TSS scheduler item
+  [x] check space on drive C: (hiberfil, pagefile)
+  [x] clean/check start menu
+  [x] run autoruns
+  [x] remove mounted network drives
+  [x] clean event log, reboot and check
+Checks
+  [x] check boot + auto admin logon
+  [x] check VNC:9014, SSH:9015, RDP:9017 (important: user name is case sensitive)
+Update  
+  [-] run windows update (disable recommended updates)
+  [x] install windows updates
+  [x] disable windows update
+  [x] clean image (batch file, manually drop -IME and -MSI)
+  [x] run clean utility (windows update cleanup)
+  [x] run autoruns and windirstat
+  [x] clean event log
+Image
+  [x] C:\ 7932.030976 bytes used, 3406.254592 bytes in image (A2009,hi,without 100MB)
+  
+  ----------------------------------------------
+   Апгрейд на новый сервер
+   
+   Для перехода работы с новым сервером необходимо перезаписать файл TSS.exe
+с проапгредженного прибора (D:\Install\STU\New Jobs and system files\TSS.exe) на неапгрейдженный в папке D\bin\
+2. затем запустить файл синхронизации Manual-FileSync-NoRAS.tss-job
+3. Перегружаем прибор
+4. затем при запуске первого Job попросит регитрацию Pocket Optimazer
+5.Зарегистрировать его
+
+------------------------------------------
+Включение приборов через BIOS
+STU HP
+Входим в BIOS постоянно нажимая Esc
+BIOS--Advanced--BIOS Power ON
+   Sunday --enable
+   Monday --enable
+   .........
+   Saturday--enable
+Time 08-12
+-----------------------------------------
+
+Ручная перезагрузка приборов
+
+перезагрузить прибор STU в след порядке?
+1.	Выключить прибор удерживая зеленую кнопку
+2.	Достать модем, запомнив из какого USB порта вы его достали
+3.	Включить прибор
+4.	Подождать примерно 2 минуты
+5.	Воткнуть обратно модем в тот же порт
+
+-------------------------------------------
+ССЫЛКА ОТЧЕТ
+
+Для выведения отчета использовать ссылку ниже, и менять параметры в дате и номере сценария. затем экспорт в csv 
+
+
+http://ntsmon03.ms.mobilkom.at/dash/graph.html?instance=stu-vel&scenarioid=5211&agentid=2408,%202411,%202415,%202403,%202407,%202412&endtime=2013-06-20T23:59:59&filterstarttime=2013-06-20T00:00:00&groupbyagent=1
+
+------------------------------------------------
+Удаленное подключение к рабочему столу
+
+Все манипуляции с раб компа недоступны необходимо модемное подключение
+
+1. зайдя в консоль через браузер она выдаст примерно такое
+--------------
+<?xml version="1.0"?>
+<TSSManageConnection>
+  <Connect service="RDP" machine="stu-vel-ark2404" addr="77.244.250.179:8717" />
+</TSSManageConnection>
+
+
+ПРАВОЙ мышкой сохранить и открыть (надо 32 разрядная винда, HP 100% работает с виртуальной XP)
+-----------------
+2. Этот текст копируем и вставляем в текстовый документ с расширением tml-xml
+3. Открываем этот документ с помощью TSSMgmtLauncher
+4. Если выскакивает ошибко то File--- Set File Association
+5. Затем еще раз открываем tml-xml
+6. Если еще раз надо подключиться к этой STU то только меняем порт в ADRESS: например 8790
+***********************************************
+ПОДКЛЮЧЕНИЕ через TightVNC Service к STU на базе неттопов HP
+
+!!!!!! Uninstall драйвер для видео карты Intel Graphics HD (иначе экран будут черный при подключении Tight VNC)
+
+1) скачиваем бесплатную утилиту http://www.tightvnc.com/download.php
+2) Пуск --TightVnc--TightVNC Viewer
+3) Remonte host:  указываем STU-VEL-HPM2420:9014
+4) нажимаем connect
+5) имя пользователя test
+6) пароль zh4w-po6
+++++++++++++++++++++++++++++++++++++++++++++++++
+ПОДКЛЮЧЕНИЕ через TightVNC Service к STU на базе ARK
+1. Меняем ip STU ARK на 192.168.1.9
+2. Устанавливае на ARK программу TightVNC сервер d:\Install\STU\Удаленный рабочий стол\tightvnc-2.7.10-setup-32bit_для_ARK.msi
+  2.1 Choose Setup Type: "Typical"
+  2.2 Require password authentification ...:
+      Enter pwd: zh4w-po6
+      Confirm pwd: zh4w-po6
+  2.3 Protect control interface...
+      Enter pwd: zh4w-po6
+      Confirm pwd: zh4w-po6
+3. Настройка программы после установки
+   3.1 Вкладка "Server"     
+       Main server port: "9014"
+       Web Access port: "9015"
+   3.2 Вкладка "Access Control"
+                Add
+                   First Matching "192.168.1.1"
+                   Last Matching IP "192.168.1.255"
+                Action
+                      "Allow"
+                Query Settings
+                      Default Action on timeout:
+                              "Accept Connection"
+4. При подключении с ноута указываем 
+   4.1 Устанавливаем ip ноута например 192.168.1.17
+   4.2 Remote host: 192.168.1.9:9014 
+
+---------------------------------------------------------------  

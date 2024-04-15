@@ -1,0 +1,12 @@
+Дамп с HASP:
+
+1. Устанавливаем драйвер
+\\srv-callg-002\c$\DmAn\Install\Nemo\HASP\HASP Driver 6.60_useKey_-install\haspdinst_provisional.exe
+Запускам данный файл через CMD с ключем "haspdinst_provisional.exe -install"
+
+2. Запускаем   RUS_NEMO
+\\srv-callg-002\c$\DmAn\Install\Nemo\HASP\RUS_NEMO.exe
+
+3. Используем пункт: "Update of existing protection key"
+4. Collect information
+5. Выбираем HL

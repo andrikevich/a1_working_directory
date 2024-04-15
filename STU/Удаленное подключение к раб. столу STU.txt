@@ -1,0 +1,55 @@
+Все манипуляции с раб компа недоступны необходимо модемное подключение
+
+1. зайдя в консоль через браузер она выдаст примерно такое
+--------------
+<?xml version="1.0"?>
+<TSSManageConnection>
+  <Connect service="RDP" machine="stu-vel-ark2404" addr="77.244.250.179:8717" />
+</TSSManageConnection>
+
+
+ПРАВОЙ мышкой сохранить и открыть (надо 32 разрядная винда, HP 100% работает с виртуальной XP)
+-----------------
+2. Этот текст копируем и вставляем в текстовый документ с расширением tml-xml
+3. Открываем этот документ с помощью TSSMgmtLauncher
+4. Если выскакивает ошибко то File--- Set File Association
+5. Затем еще раз открываем tml-xml
+6. Если еще раз надо подключиться к этой STU то только меняем порт в ADRESS: например 8790
+***********************************************
+ПОДКЛЮЧЕНИЕ через TightVNC Service к STU на базе неттопов HP
+
+!!!!!! Uninstall драйвер для видео карты Intel Graphics HD (иначе экран будут черный при подключении Tight VNC)
+
+1) скачиваем бесплатную утилиту http://www.tightvnc.com/download.php
+2) Пуск --TightVnc--TightVNC Viewer
+3) Remonte host:  указываем STU-VEL-HPM2420:9014
+4) нажимаем connect
+5) имя пользователя test
+6) пароль zh4w-po6
+++++++++++++++++++++++++++++++++++++++++++++++++
+ПОДКЛЮЧЕНИЕ через TightVNC Service к STU на базе ARK
+1. Меняем ip STU ARK на 192.168.1.9
+2. Устанавливае на ARK программу TightVNC сервер d:\Install\STU\Удаленный рабочий стол\tightvnc-2.7.10-setup-32bit_для_ARK.msi
+  2.1 Choose Setup Type: "Typical"
+  2.2 Require password authentification ...:
+      Enter pwd: zh4w-po6
+      Confirm pwd: zh4w-po6
+  2.3 Protect control interface...
+      Enter pwd: zh4w-po6
+      Confirm pwd: zh4w-po6
+3. Настройка программы после установки
+   3.1 Вкладка "Server"     
+       Main server port: "9014"
+       Web Access port: "9015"
+   3.2 Вкладка "Access Control"
+                Add
+                   First Matching "192.168.1.1"
+                   Last Matching IP "192.168.1.255"
+                Action
+                      "Allow"
+                Query Settings
+                      Default Action on timeout:
+                              "Accept Connection"
+4. При подключении с ноута указываем 
+   4.1 Устанавливаем ip ноута например 192.168.1.17
+   4.2 Remote host: 192.168.1.9:9014 
