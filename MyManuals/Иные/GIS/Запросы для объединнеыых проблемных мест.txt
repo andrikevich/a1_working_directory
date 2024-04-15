@@ -1,0 +1,58 @@
+Использование case для составления метрик по след. принципу:
+Если статус open то добавляем новое поле с цифрой 3, если to checked то цифра 7, если статус repaired, то 19
+
+SELECT 
+ID AS ObjectID, 
+ProblemGroupNumber, 
+Problem, 
+Type, 
+RAT, 
+CGI_SC, 
+Status AS ColorState, 
+Angle as Azimuth, 
+Angle, 
+CASE WHEN Count*3>30 THEN '30' ELSE Count*3 END as Distance, 
+Count, 
+Lon AS Longitude, 
+Lat AS Latitude, 
+'+03:00' AS TimeZone,
+CASE WHEN Status = 'Open' THEN '3' ELSE (CASE WHEN Status = 'Repaired' THEN '7' ELSE '19' END) END as StatusColor
+FROM DropCallsClustered_V
+----------------------------------------------------------------
+SELECT 
+ID AS ObjectID, 
+ProblemGroupNumber, 
+Problem, 
+Type, 
+RAT, 
+CGI_SC, 
+Status AS ColorState, 
+Angle as Azimuth, 
+Angle, 
+CASE WHEN Count*3>30 THEN '30' ELSE Count*3 END as Distance, 
+Count, 
+Lon AS Longitude, 
+Lat AS Latitude, 
+'+03:00' AS TimeZone,
+CASE WHEN Status = 'Open' THEN '3' ELSE (CASE WHEN Status = 'Repaired' THEN '7' ELSE '19' END) END as StatusColor
+FROM DropCallsClustered_V
+WHERE Problem = 'BlockCall'
+
+SELECT 
+ID AS ObjectID, 
+ProblemGroupNumber, 
+Problem, 
+Type, 
+RAT, 
+CGI_SC, 
+Status AS ColorState, 
+Angle as Azimuth, 
+Angle, 
+CASE WHEN Count*3>30 THEN '30' ELSE Count*3 END as Distance, 
+Count, 
+Lon AS Longitude, 
+Lat AS Latitude, 
+'+03:00' AS TimeZone,
+CASE WHEN Status = 'Open' THEN '3' ELSE (CASE WHEN Status = 'Repaired' THEN '7' ELSE '19' END) END as StatusColor
+FROM DropCallsClustered_V
+WHERE Problem = 'DropCall'

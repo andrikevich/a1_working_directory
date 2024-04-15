@@ -1,0 +1,23 @@
+ *#0808# MTP+ADB
+
+
+********************************************************************
+Enter on secret service mode on Samsung with android 4.4.#
+Enter from dialer *#0011*
+Select Back from menu
+Select key input and Q 
+Select key input and 0000
+Wait around 15 second
+Enjoy service mode!
+
+*******************************************************************
+
+SAMSUNG S6 EDGE
+ Для подключения в режиме ODM:
+ 1. *#0808#
+ 2. AP
+ 3. RNDIS+ACM+DM+ADB
+ 
+ ********************************************************************
+
+

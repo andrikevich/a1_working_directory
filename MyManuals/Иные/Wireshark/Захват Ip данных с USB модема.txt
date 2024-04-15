@@ -1,0 +1,8 @@
+Когда Wireshark не видит интерфейс USB модема
+1. Необходимо скачать утилитку: USB Packet capture for Windows с
+   http://desowin.org/usbpcap/thankyou.html?file=USBPcapSetup-1.0.0.7.exe
+2. Запускаем с програм файлс эту утилитку (c:\Program Files\USBPcap\USBPcapCMD.exe)
+3. Выбираем номер определившегося нашего модема (Напр 2)
+4. указываем название файла для capture. Этот файл будет хранится в папке с утилиткой.
+5. Добавляем к полученнума файлу расширение *.pcap
+6. Иследуем его в Wireshark как описано в скиншотах Ping OOKLA_1.jpg

@@ -1,0 +1,12 @@
+1. Необходим текстовый файл с разделением табуляции  с полями указывающими на тип сектора (типа S1, S2 и т.д. до 7--- это максимум)
+  
+   На пример:
+   Name	bsic	bcch	ci	lac	mnc	mcc	long	lat	azimuth	sectors	beam
+   1ALBA1A	3	111	5 761	142	257	1	26.603747	53.20595	90	S1	65
+
+2. Открываем данный файл через File ---Open в MapInfo
+3. Запускаем макрос (d:\Install\MTU\!Maps from TEMS Presentation\sector-definer.MBX) через Программы---Запуск проограммы MapBasic
+4. Cell Maker-- Draw Sector Symbol
+   4.1 Get sector designarors from --- выбираем поле где у нас указаны S1, S2 ...
+   4.2 Latitude, longitude, Get sector oriental from---это азимут, beamwith -- это beam 
+   

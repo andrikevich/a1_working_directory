@@ -1,0 +1,7 @@
+Enter on secret service mode on Samsung with android 4.4.#
+Enter from dialer *#0011*
+Select Back from menu
+Select key input and Q 
+Select key input and 0000
+Wait around 15 second
+Enjoy service mode!

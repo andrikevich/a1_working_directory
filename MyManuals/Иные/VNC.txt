@@ -1,0 +1,8 @@
+ Не отправляется CTRL + ALT + Delete
+ 
+ VNCScan works best for this but you can do it manually, also.
+1) "Start menu" -> "Execute" - > gpedit.msc
+2) Navigate to "Computer Configuration" -> "Administrative Templates" -> "Windows Components" -> "Windows Logon Options"
+3) Double-click on the "Disable or enable software Secure Attention Sequence" parameter.
+4) Check "Enable", then select "Services" in the combobox.
+5) Apply the modification

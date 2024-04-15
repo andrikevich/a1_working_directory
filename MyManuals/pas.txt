@@ -1,0 +1,204 @@
+Upload TEMS Austria
+77.244.250.180
+u: tems
+p: 2k_m3k
+
+--------------------
+Tems FTP Minsk (Srv-tafile-002)
+77.74.36.238
+ftp://77.74.36.238/TemsAutomatic
+
+1.    Полный доступ во все папки сервера: 
+•         Login: tems
+•         Pass: mkSmet_k6
+2.    Доступ на чтение и запись, только в 1-ой папке папку «Tauser», остальные папки ему не доступны
+•         Login: tauser
+•         Pass: vNYeWVV_*Kug77kHPHHM
+
+3.    Только на чтение и на только 1 определенную папку “Read”
+•         Login: taread
+•         Pass: Dndr3kev!4
+
+4. Для управления качества
+•         Login: monit
+•         Pass: 2B_KmN7t
+
+
+--------------------
+Сервер для передачи логов Кулаковский (srv-tafile-001)
+ftp://178.163.161.209
+ftp://178.163.161.209/LogFiles/voyager2/
+внутр:
+172.16.128.11:22
+внешний
+178.163.161.209:26
+
+u: Tems1
+p: 1qaz@WSX
+
+u: Tems2
+p: 2wsx#EDC
+-------------------------
+Сервер на выходе из нашей сети Ковшун  (srv-compdt-001)
+
+ip: 77.74.33.124
+u: comparuser
+p: 2wsx#EDC1
+
+-----------------------
+Tems OPC
+
+readonly**
+u: OPC_BLR
+p: 2wsx#EDC
+
+u: OPC_Andrikevich
+p: 2wsx#EDC
+
+----------------------
+Новый Call Generator
+SRV-CallG-001
+ip: 10.254.26.217
+gate: 10.254.26.1
+Mask: 255.255.255.0
+
+Локальный админ
+User: tems
+Pass: x?EbUVmSEH
+
+
+-------------------------
+SRV-CallG-002
+
+Локальный админ : admin 
+Пароль : sgfC8GmQK
+
+------------------------
+ИССА МТС
+
+u: 336012840
+p: 1111
+Unlim на МТС:
+6012379
+6012796(пароль в ИССУ 1111)
+
+-------------------------
+ИССА life
+issa.life.com.by
+
+u: 80259004561
+p: 1111
+Unlim  на Life
+9004561
+9004562
+
+------------------------
+МТС Viewer MTU
+192.168.10.6
+tems00
+
+-----------------------
+VPN Anyconnect
+1199*******
+*113#
+
+-----------------
+Сервер для логов
+srv-logsblr-001
+10.254.0.239
+
+-----------------------
+CDR
+
+Server name: ntsqlqp001.austria.local,2145
+Authentication: SQL Server Authentication
+L: vel_read
+p: HT7)huzZ
+
+------------------------
+STU Operator Console
+
+77.244.250.178:8799
+u: tss
+p: smurf
+
+Для подключения через "монитор"
+u: test
+p: zh4w-po6
+
+----------------------------
+Отчеты ДТ Summary 
+9
+---------------------------
+Удаленный рабочий стол RTU
+u: cps
+p: tems00
+
+--------------------------------
+Сайт Ascom.com
+l: d.andrikevich@velcom.by
+p: 2wsx#EDC
+---------------------------------
+FTP  сервер обменный STU
+77.244.250.178
+Log-User:                STU_FTP
+Log-Pass:                uj5e-ap7
+
+-------------------------
+NetMax
+Dmitry_an
+2+sh3
+************************
+Планшет у водителя:
+log:drivervelcom@gmail.com
+pwd:DriverVelcom@#$123
+************************
+srv-logsblr-004
+
+Установлен sql server 2016:
+                dmitry_an – sysadmin;
+            sec_dba – sysadmin.
+            1qaz@WSX3edc$RFV
+            SRV-LOGSBLR-004\SQL2016 
+
+ --------------------------------------
+ FTP Notel for N-HUB
+ 
+IP: 185.36.170.87
+user: velcom
+pass: velcom2016!
+
+-----------------------------------------------
+
+TP-Link D848
+SSID: TP-Link_D848
+SSID: TP-Link_D848_5G
+Pswd: 75484927
+
+---------------------------------------------
+Bitlocker
+сброс пароля через BIOS (послеСгоревшегоПК):
+217283-605605-653631-244893-210056-576103-261756-295438
+////
+2104...V..a
+------------------------------------------------
+ATOLL
+new_login = DB_DMITRY_AN
+new_password = A1_Andrikevich_atoll_password
+
+Workspace
+1)Tools-->User Configuration --> Load
+2)\\srv-opt-003\AtollData\AtollGeoData\ActualMaps\MapSets
+-----------------------------------------------
+
+Sec_NetMax
+
+----------------------------
+
+Notel Ftp for Install  
+Folder 13
+83.15.153.9:29
+login: a1_by
+pass: A1Belaru52020!
+
+

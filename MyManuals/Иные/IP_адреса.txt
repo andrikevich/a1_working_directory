@@ -1,0 +1,37 @@
+       Microsoft Windows [Version 6.1.7601]
+(c) Корпорация Майкрософт (Microsoft Corp.), 2009. Все права защищены.
+
+c:\Andrikevich>ipconfig
+
+Настройка протокола IP для Windows
+
+
+Адаптер беспроводной локальной сети Wireless Network Connection 2:
+
+   
+        Для NB-TECH-287
+   DNS-суффикс подключения . . . . . : MAIN.VELCOM.BY
+   Локальный IPv6-адрес канала . . . : fe80::dac:b32a:55c4:be7e%13
+   IPv4-адрес. . . . . . . . . . . . : 10.254.16.149
+   Маска подсети . . . . . . . . . . : 255.255.254.0
+   Основной шлюз. . . . . . . . . : 10.254.16.1
+   
+   *****************************************
+      SRV-LOGSBLR-001
+      
+      10.254.0.239
+      255.255.255.0
+      10.254.0.1
+      
+      **************************************
+       SRV-LOGSBLR-002   (Чижик)
+ 
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fe80::19f2:ca0d:8de5:5e57%11
+   IPv4 Address. . . . . . . . . . . : 10.254.5.75
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 10.254.5.1
+
+
+
+   \\srv-sccm-002\Sources\App

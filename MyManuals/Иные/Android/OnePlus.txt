@@ -1,0 +1,44 @@
+https://forums.oneplus.com/threads/enable-vowifi-and-volte-after-update-oneplus-5t-to-android-10.1252067/
+After update to Android 10, missing switches to VoWiFi and VoLTE.
+This method doesn't required root.
+1 install the old LogKit from op7
+2 Type *#800# --> oneplus Logkit --> Function Switch --> enable VoLTE and VoWifi switch, VT (for ViLTE)
+reboot
+3 Open Settings --> WiFi & Intenet --> SIM & netwok --> enable VoLTE and VoWifi switch
+4 Connect your phone to PC, Type *#801# in Phone app and enable Full-port switch
+
+5  FOR ANDROID 11:
+    5.1 Download and install ADB and FASTBOOT Installer 1.0.5
+        5.1.1 LAunch cmd
+    5.2 Активация VoLTE без рута на android 11:
+             5.2.1. adb reboot ftm 
+                появятся ироглифы на телефоне и телефон погаснет
+             5.2.2. adb shell
+             появится в cmd $  и за ним вставляем следующий пункт
+             5.2.3. setprop sys.usb.config diag,diag_mdm,qdss,qdss_mdm,serial_cdev,dpl,rmnet,adb
+
+6 Open "PDC" in your QPST start menu folder, best to do by right click & "run as administrator"
+        6.1 Select your device, right click on "Oversea-Commercial_DS" and deactivate Sub0 and Sub1
+        если ошибка в подключении а телефон в строке device виден:
+            6.1.1 Advanced снизу справа
+            6.1.2 Subscription Id: Sub0
+            6.1.3 Slot ID: Slot 0
+            6.1.4 Send
+            
+            !!! 6.1.1-6.1.4 ПОВТОРЯЕМ каждый раз когда будем менять следующие пункты
+        6.2 Now select "VoLTE_OEM_Lab", right-click and select "Sub0" and "Sub1" on "SetSelectedConfig".
+        6.3 Now press "VoLTE_OEM_Lab" again and press Activate at the bottom.
+7 adb reboot
+
+also works Volte-OpenMkt-Commercial-CMCC
+
+
+
+*********************************************
+*В последних  телефонах  работало:
+* 1) 4 Connect your phone to PC, Type *#801# in Phone app and enable Full-port switch
+* 2) adb shell
+             появится в cmd $  и за ним вставляем следующий пункт
+* 3)  setprop sys.usb.config diag,diag_mdm,qdss,qdss_mdm,serial_cdev,dpl,rmnet,adb
+* и т.д. с 6-го пункта инструкции выше
+             

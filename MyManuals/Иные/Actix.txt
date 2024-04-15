@@ -1,0 +1,37 @@
+Для регистарции лицензии HASPa надо поместить файл в :
+   \\srv-actix-002\c$\ProgramData\Actix\Analyzer\Bin\lservrc
+   
+   SoftKeys:
+   
+   Softkey: 106664S
+Products: Analyzer Pro + Spotlight HSPA.Plus.MapXtr
+Product ID: DDGZ-NEQD-73SY-DBFZ
+
+Softkey 106665S
+Products: Analyzer Pro + Spotlight HSPA.Plus.MapXtr
+Product ID: PXLA-RAFL-NPXJ-CWDG
+
+
+-----------------
+srv-actix-001
+Machine ID is:
+ZZGN-N9QH-GYWR-G7N3
+
+
+**********************************************
+ Проблема с картами Bing, когда они не грузятся:
+ 
+ This looks like a configuration issue of the map layers.
+
+1.	Close Actix software, if running.
+2.	Open this location C:\ProgramData\Actix\Analyzer\Bin.
+3.	Delete AppSettings.dat
+4.	Go to Programs and Features and repair Actix software.
+
+
+*******************************************
+Не хочет работать Installer Windows:
+Проверяем есть ли папка с:\Windows\Installer
+Если нет создаем ее
+**********************************************
+

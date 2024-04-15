@@ -1,0 +1,41 @@
+ВИРТУАЛ БОХ ЗАПУСК ВИНДЫ С ФЛЕШКИ
+https://itbc.kiev.ua/how-to-boot-from-usb-in-virtualbox/
+https://www.youtube.com/watch?v=l1Ra0MC3caQ
+Желательно иметь установленный и запущенный от администратора Virualbox: 
+
+1. Запускаем CMD от администратора 0:46
+2. Вводим diskpart 0:54
+3. Вводим list disk 0:58 
+4. Смотрим, что в моём случае моя флешка это номер 2 среди дисков. 1:02
+5. Вводим exit 1:10
+6. Смотрим где установлен Virtualbox. Обычно это C:\Program Files\Oracle\VirtualBox. Это важно для след. шага 1:15 
+7. Если путь как у меня вводим cd C:\Program Files\Oracle\VirtualBox 1:33
+8. Вводим
+
+VBoxManage internalcommands createrawvmdk -filename C:\USB-download-virtualbox.vmdk -rawdisk \\.\PhysicalDrive2
+
+где USB-download-virtualbox.vmdk имя файла, а C:\ путь. PhysicalDrive2 номер диска флешки 1:53
+
+9) Запускаем от администратора Virtualbox (важно от администратора) 2:40
+10) Заходим в Настроить – Носители – Где контроллеры IDE пр. кл. мыши – Добавить жёсткий диск – Выбрать существующий диск. Выбираем USB-download-virtualbox.vmdk. 2:51
+11) Выставляем загрузку с CD выбрав наш образ 3:05
+12) Проверяем, всё работает =) 3:40 
+
+-----------------------
+ВКЛЮЧИТЬ поддержку НЕСКОЛЬКИХ процессоров
+
+Для HP 660 G2 в биосе (ESC при загрузке) сверзу OPTIONS--Secure???... надо включить Virtualization Technology (VTx)
+
+**************************************
+*
+После апгрейда до 6 версии перестало запускаться установленная моя виртуальная машина
+Ошибка:
+  NtCreateFile(\Device\VBoxDrvStub) failed: 0xc000000034
+Надо:
+
+1. Зайти через Explorer:
+c:\Program Files\Oracle\VirtualBox\drivers\vboxdrv\VBoxDrv.inf
+
+2. Прав. мышкой установить
+
+3. Рестартануть хост - ПК

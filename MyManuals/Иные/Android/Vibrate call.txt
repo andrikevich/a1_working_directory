@@ -1,0 +1,34 @@
+Для андроида 4.1 есть возможность дать права для приложения чтобы заработала функция вибро при ответе.
+
+Для этого необходжимо:
+1. Включить режим отладки по USB на мобильном телефоне.
+2.1. Установить драйвер для мобильного телефона (инструкция прикреплена к этому сообщению). Для обновления драйвера достаточно зайти в диспетчер устройств, выбрать наш телефон и нажать обновить драйвер, раздел "Шаг 2. Отключение автоматической установки драйверов" можно опустить.
+2.2. Скачать android SDK НАЙТИ В ПОИСКОВИКЕ СОВРЕМЕННУЮ ВЕРСИЮ. 
+    Для 5-го андроида: по ссылке http://dl.google.com/android/android-sdk_r22.2.1-windows.zip (версия надо 24 для андроид 5)
+2.2.1. Для установки Android SDK необходимо чтобы Java была установлена на компьютере
+2.2.2. Воспользоваться инструкцией из файла SDK Readme.txt для установки Android SDK
+2.2.3. При необходимости воспользоваться инструкцией из файла tools/adb_has_moved.txt
+3. Подключить телефон USB кабелем к компьютеру.
+4. На компьютере открыть командрую строку (cmd) в директории platform-tools (эта директория должна появиться после выполнения пункта 2.2.) и выполните команду "adb devices" список устройств не должен быть пустым.
+5. Выполнить команду:
+
+adb shell "pm grant com.robin.huangwei.vibrate250 android.permission.READ_LOGS"
+или 
+adb shell "pm grant com.robin.huangwei.vibrate250 android.permission.READ_LOGS"?
+
+6. Нельзя менять длительность вибрации в настройках программы. Если это случилось и вибрация не работает, следует восстановить настройки программы по умолчанию.
+
+
+
+1. On your phone go to settings>developer options, toggle on USB debugging. If you cannot even find the developer options in settings menu, you should go to settings>about phone, scroll to the last item named like "build number" and click on it for more than 10 times and then the hidden item of developer options will be shown.
+
+2. Get the ADB tool for your phone, you can download the standalone version from here http://sourceforge.net/projects/adbstandalone/ , and Install the driver of your Android phone. You can also go to official android site http://developer.android.com/sdk/index.html#Other (donwload SDK tools only) to download the Android SDK tools for your PC, and extract it on your PC.
+
+3. Connect your phone with your PC with USB cable, you might see a dialog asking for confirmation to enable debugging this phone with the PC, select YES.
+
+4. On your PC, open a terminal command line shell, like cmd or powershell, execute "adb devices"? you can see the connected device listed there.
+
+5. If all of above are OK, just execute the command line below: 
+adb shell "pm grant com.robin.huangwei.vibrate250 android.permission.READ_LOGS"?
+
+6. Kill this application process(click the 'Recent App' button and remove it from the list) and restart it. Or simply reboot your phone, you should get the correct permission then.

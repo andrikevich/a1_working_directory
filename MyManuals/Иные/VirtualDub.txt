@@ -1,0 +1,9 @@
+Для склеивания видео в 1 файл из *.MOV
+0. Выбираем Video-Direct Sream Copy
+1. Открываем по 1 файлу *.MOV
+2. File-Save as avi
+3. Выбираем Video-Direct Sream Copy
+4. Открываем первый сохранненный avi файл
+5. File--Append AVI segment..
+6. Выбираем второй AVI файл 
+7. File--Save as AVI склеенный файл                                        
